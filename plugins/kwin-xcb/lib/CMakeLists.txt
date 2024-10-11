@@ -64,15 +64,15 @@ target_link_libraries(
     KF5::CoreAddons
 )
 
-if (KWIN_LIBRARY_PATH)
+#if (KWIN_LIBRARY_PATH)
     # 强制链接libkwin.so，kwin开发库未提供 libkwin.so，需要构建脚本自行创建链接到 /usr/lib/.../libkwin.so.x.x.x 的软连接
-    find_library(lib_kwin NAMES kwin PATHS ${KWIN_LIBRARY_PATH} NO_DEFAULT_PATH)
-    if (EXISTS ${lib_kwin})
-        target_link_libraries(${TARGET_NAME} ${lib_kwin})
-    else()
-        message(SEND_ERROR "Can't find libkwin.so from \"${KWIN_LIBRARY_PATH}\"")
-    endif()
-endif()
+#    find_library(lib_kwin NAMES kwin PATHS ${KWIN_LIBRARY_PATH} NO_DEFAULT_PATH)
+#    if (EXISTS ${lib_kwin})
+#        target_link_libraries(${TARGET_NAME} ${lib_kwin})
+#    else()
+#        message(SEND_ERROR "Can't find libkwin.so from \"${KWIN_LIBRARY_PATH}\"")
+#    endif()
+#endif()
 
 if (CMAKE_INSTALL_LIBDIR)
     install_targets("/${CMAKE_INSTALL_LIBDIR}" ${TARGET_NAME})

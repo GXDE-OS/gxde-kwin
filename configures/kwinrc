@@ -56,6 +56,10 @@ BorderActivateSphere=9
 [Effect-DesktopGrid]
 BorderActivate=9
 
+[Effect-blur]
+BlurStrength=6
+NoiseStrength=4
+
 [Effect-PresentWindows]
 BorderActivate=9
 BorderActivateAll=9

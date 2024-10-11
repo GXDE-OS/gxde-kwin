@@ -12,6 +12,7 @@ find_package(DtkCMake REQUIRED)
 find_package(KF5Config REQUIRED)
 find_package(KF5WindowSystem REQUIRED)
 find_package(KF5GlobalAccel REQUIRED)
+find_package(DtkLog REQUIRED)
 find_package(DtkCore REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(X11 REQUIRED) # 修复出现报错 /usr/bin/ld: 找不到 -lX11::X11: 没有那个文件或目录 的问题
@@ -63,6 +64,7 @@ target_include_directories(
     ${TARGET_NAME}
     PRIVATE
     ${GSETTINGS_INCLUDE_DIRS}
+    ${DtkCore_INCLUDE_DIRS}
 )
 
 target_link_libraries(
@@ -74,6 +76,7 @@ target_link_libraries(
     KF5::GlobalAccel
     dtkcore
     ${GSETTINGS_LDFLAGS}
+    ${DtkCore_LIBRARIES}
 )
 
 install_targets("/bin" deepin-wm-dbus)
