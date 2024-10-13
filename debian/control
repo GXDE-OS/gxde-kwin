@@ -1,7 +1,7 @@
-Source: dde-kwin
+Source: gxde-kwin
 Section: devel
 Priority: optional
-Maintainer: Deepin Packages Builder <packages@deepin.com>
+Maintainer: gfdgd xi <3025613752@qq.com>
 Build-Depends: debhelper (>=9),
  cmake,
  qtbase5-dev,
@@ -25,19 +25,43 @@ Build-Depends: debhelper (>=9),
  extra-cmake-modules,
  libkdecorations2-dev
 Standards-Version: 3.9.8
-Homepage: https://github.com/linuxdeepin/dde-kwin
+Homepage: https://gitee.com/GXDE-OS/gxde-kwin
 
-Package: dde-kwin
+Package: gxde-kwin
 Architecture: any
+Replaces: dde-kwin
+Conflicts: 
+ dde-kwin, 
+ deepin-kwin-common,
+ deepin-kwin-data,
+ deepin-kwin-dev,
+ deepin-kwin-wayland,
+ deepin-kwin-wayland-backend-drm,
+ deepin-kwin-wayland-backend-fbdev,
+ deepin-kwin-wayland-backend-virtual,
+ deepin-kwin-wayland-backend-wayland,
+ deepin-kwin-wayland-backend-x11,
+ deepin-kwin-x11,
+ libdeepin-kwineffects13,
+ libdeepin-kwineffects14,
+ libdeepin-kwinglutils13,
+ libdeepin-kwinglutils14,
+ libdeepin-kwinxrenderutils13,
+ libdeepin-kwinxrenderutils14,
+Provides: dde-kwin
 Depends: ${shlibs:Depends}, ${misc:Depends},
  kwin-x11, plasma-framework, libkf5globalaccel-bin,
- qml-module-qtquick-controls2, qml-module-qtquick-templates2
+ qml-module-qtquick-controls2, qml-module-qtquick-templates2,
+ kwin-wayland
 Description: KWin configures/plugins on the DDE
  Let kwin work well in the Deepin Desktop Environment.
 
-Package: dde-kwin-dev
+Package: gxde-kwin-dev
 Section: libdevel
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Developer package of dde-kwin
- Provide dde-kwin plugin implementation basis files.
+Replaces: dde-kwin-dev
+Conflicts: dde-kwin-dev
+Provides: dde-kwin-dev
+Description: Developer package of gxde-kwin
+ Provide gxde-kwin plugin implementation basis files.
