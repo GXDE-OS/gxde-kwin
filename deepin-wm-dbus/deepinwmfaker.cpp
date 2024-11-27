@@ -25,7 +25,7 @@ Q_GLOBAL_STATIC_WITH_ARGS(QGSettings, _gsettings_dde_zone, ("com.deepin.dde.zone
 #define GsettingsZoneLeftUp "leftUp"
 #endif // DISABLE_DEEPIN_WM
 
-#define DeepinWMConfigName "deepinwmrc"
+#define DeepinWMConfigName "gxdewmrc"
 #define DeepinWMGeneralGroupName "General"
 #define DeepinWMWorkspaceBackgroundGroupName "WorkspaceBackground"
 
@@ -124,7 +124,7 @@ DeepinWMFaker::DeepinWMFaker(QObject *parent)
     , m_kwinCloseWindowGroup(new KConfigGroup(m_kwinConfig->group(KWinCloseWindowGroupName)))
     , m_kwinRunCommandGroup(new KConfigGroup(m_kwinConfig->group(KWinRunCommandGroupName)))
     , m_globalAccel(KGlobalAccel::self())
-    , m_kwinUtilsInter(new KWin(KWinUtilsDbusService, KWinUtilsDbusPath, QDBusConnection::sessionBus(), this))
+    , m_kwinUtilsInter(new KWin(KWinDBusService, KWinDBusCompositorPath, QDBusConnection::sessionBus(), this))
     , m_previewWinMiniPair(QPair<uint, bool>(-1, false))
 {
 #ifndef DISABLE_DEEPIN_WM
@@ -674,11 +674,22 @@ void DeepinWMFaker::setCompositingEnabled(bool on)
     if (compositingEnabled() == on) {
         return;
     }
-
-    if (on)
-        m_kwinUtilsInter->ResumeCompositor(1);
-    else
-        m_kwinUtilsInter->SuspendCompositor(1);
+    QDBusMessage dbus;
+    if (on) {
+        dbus = QDBusMessage::createMethodCall("org.kde.KWin",
+                                                           "/Compositor",
+                                                           "org.kde.kwin.Compositing",
+                                                           "resume");
+        //m_kwinUtilsInter->resume();
+    }
+    else {
+        dbus = QDBusMessage::createMethodCall("org.kde.KWin",
+                                                           "/Compositor",
+                                                           "org.kde.kwin.Compositing",
+                                                           "suspend");
+        //m_kwinUtilsInter->suspend();
+    }
+    QDBusMessage res = QDBusConnection::sessionBus().call(dbus);
 
     if (compositingEnabled() == on)
         emit compositingEnabledChanged(on);

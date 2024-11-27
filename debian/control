@@ -48,7 +48,7 @@ Conflicts:
  libdeepin-kwinglutils14,
  libdeepin-kwinxrenderutils13,
  libdeepin-kwinxrenderutils14,
-Provides: dde-kwin
+Provides: dde-kwin, deepin-kwin-x11, deepin-kwin-wayland
 Depends: ${shlibs:Depends}, ${misc:Depends},
  kwin-x11, plasma-framework, libkf5globalaccel-bin,
  qml-module-qtquick-controls2, qml-module-qtquick-templates2,
