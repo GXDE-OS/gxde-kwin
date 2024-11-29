@@ -24,7 +24,8 @@ Build-Depends: debhelper (>=9),
  deepin-gettext-tools,
  extra-cmake-modules,
  libkdecorations2-dev,
- libdtkgui-dev
+ libdtkgui-dev,
+ libdtkwidget-dev
 Standards-Version: 3.9.8
 Homepage: https://gitee.com/GXDE-OS/gxde-kwin
 
