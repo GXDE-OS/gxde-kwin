@@ -1,7 +1,7 @@
 etc/xdg
 usr/bin
 #usr/lib/*/*.so.*
-#usr/lib/*/qt5
+usr/
 usr/share/kwin/scripts
 #usr/share/kwin/tabbox
 usr/share/dbus-1/interfaces
