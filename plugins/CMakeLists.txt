@@ -6,6 +6,8 @@ if((NOT "${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "loongarch64") AND (NOT "${CMAKE_SY
     # loongarch64 和 riscv64 暂不开启该选项
     option(ENABLE_KDECORATION "enable deepin kdecoration plugin" ON)
     add_subdirectory(kdecoration)
+else()
+    add_subdirectory(kdecoration-kde6)
 endif()
 
 #if (ENABLE_KDECORATION)
