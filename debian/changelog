@@ -1,9 +1,10 @@
-deepin-kwin (4:5.25.27.2-kwin.5.24.8) UNRELEASED; urgency=medium
+deepin-kwin (4:5.25.27.3-kwin.5.24.9) UNRELEASED; urgency=medium
 
   * update: add decoration configfiles
   * update: Support Loong64
+  * 导出 decorations.json 文件
 
- -- gfdgd_xi <3025613752@qq.com>  Sun, 13 Oct 2024 16:14:31 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Sat, 12 Apr 2025 23:04:46 +0800
 
 deepin-kwin (4:5.25.27-kwin.5.24.3) unstable; urgency=medium
 

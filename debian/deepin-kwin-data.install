@@ -33,6 +33,7 @@ etc/xdg/kglobalshortcutsrc
 etc/xdg/deepin-klaunchrc
 etc/xdg/deepin-kwinrc
 etc/xdg/deepin-kwinrulesrc
+etc/xdg/deepin-decoration/
 etc/skel/.config/kglobalshortcutsrc
 usr/share/dsg/configs/org.deepin.kwin/org.deepin.kwin.splitmenu.display.json
 
