@@ -1,8 +1,9 @@
-deepin-kwin (4:5.25.27.4) UNRELEASED; urgency=medium
+deepin-kwin (4:5.25.27.5-kwin.5.24.3) UNRELEASED; urgency=medium
 
   * update: add decoration configfiles
   * update: Support Loong64
   * 导出 decorations.json 文件
+  * Only compile at GXDE 25 Temporarily
 
  -- gfdgd_xi <3025613752@qq.com>  Sat, 12 Apr 2025 23:04:46 +0800
 
