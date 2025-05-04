@@ -108,7 +108,7 @@ Package: deepin-kwin-common
 Architecture: any
 Depends: hwdata,
          deepin-kwin-data (= ${source:Version}),
-         libkf5globalaccel-bin,
+         gxde-kglobalacceld | libkf5globalaccel-bin,
          qml-module-org-kde-kquickcontrolsaddons,
          qml-module-qtmultimedia,
          ${misc:Depends},
