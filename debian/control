@@ -220,8 +220,8 @@ Package: libdeepin-kwineffects14
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends},
-Breaks: libkwin4-effect-builtins1, libkwineffects13,
-Replaces: libkwineffects13,
+Breaks: libkwin4-effect-builtins1, libkwineffects13, libkwineffects14
+Replaces: libkwineffects13, libkwineffects14
 Description: KDE window manager effects library
  KWin (pronounced as one syllable "deepin-kwin") is the window
  manager for the KDE Plasma Desktop. It gives you complete
@@ -237,8 +237,8 @@ Package: libdeepin-kwinglutils14
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends},
-Breaks: libkwin4-effect-builtins1, libkwinglutils13,
-Replaces: libkwinglutils13,
+Breaks: libkwin4-effect-builtins1, libkwinglutils13, libkwinglutils14,
+Replaces: libkwinglutils13, libkwinglutils14,
 Description: KDE window manager gl utils library
  KWin (pronounced as one syllable "deepin-kwin") is the window
  manager for the KDE Plasma Desktop. It gives you complete
