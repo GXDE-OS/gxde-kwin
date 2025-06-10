@@ -105,6 +105,9 @@ Rules-Requires-Root: no
 
 Package: gxde-kwin-common
 Architecture: any
+Conflicts: deepin-kwin-common
+Replaces: deepin-kwin-common
+Provides: deepin-kwin-common
 Depends: hwdata,
          gxde-kwin-data (= ${source:Version}),
          gxde-kglobalacceld,
@@ -126,6 +129,9 @@ Description: KDE window manager, common files
  This package is part of the KDE base workspace module.
 
 Package: gxde-kwin-data
+Conflicts: deepin-kwin-data
+Replaces: deepin-kwin-data
+Provides: deepin-kwin-data
 Architecture: any
 Multi-Arch: foreign
 Depends: ${misc:Depends}, ${python3:Depends}, plasma-framework
@@ -147,6 +153,8 @@ Description: KDE window manager data files
  This package contains the data files
 
 Package: gxde-kwin-dev
+Conflicts: deepin-kwin-dev
+Provides: deepin-kwin-dev
 Section: libdevel
 Architecture: any
 Depends: gxde-kwin-common (= ${binary:Version}),
@@ -160,7 +168,7 @@ Depends: gxde-kwin-common (= ${binary:Version}),
          qtbase5-dev (>= 5.15.0~),
          ${misc:Depends},
          ${shlibs:Depends},
-Replaces: kde-workspace-dev
+Replaces: kde-workspace-dev,deepin-kwin-dev
 Description: KDE window manager - devel files
  KWin (pronounced as one syllable "deepin-kwin") is the window
  manager for the KDE Plasma Desktop. It gives you complete
@@ -173,6 +181,9 @@ Description: KDE window manager - devel files
  This package is part of the KDE base workspace module.
 
 Package: gxde-kwin-wayland
+Conflicts: deepin-kwin-wayland
+Replaces: deepin-kwin-wayland
+Provides: deepin-kwin-wayland,deepin-kwin
 Architecture: any
 Depends: kwayland-integration (>= 5.24),
          gxde-kwin-wayland-backend-drm (= ${binary:Version}) | gxde-kwin-wayland-backend-fbdev (= ${binary:Version}) | gxde-kwin-wayland-backend-x11 (= ${binary:Version}) | gxde-kwin-wayland-backend-virtual (= ${binary:Version}) | gxde-kwin-wayland-backend-wayland (= ${binary:Version}),
@@ -180,7 +191,6 @@ Depends: kwayland-integration (>= 5.24),
          xwayland,
          ${misc:Depends},
          ${shlibs:Depends},
-Provides: deepin-kwin
 Description: KDE window manager, wayland version, PREVIEW release
  KWin (pronounced as one syllable "deepin-kwin") is the window
  manager for the KDE Plasma Desktop. It gives you complete
@@ -195,10 +205,12 @@ Description: KDE window manager, wayland version, PREVIEW release
  stability as with the x11 version.
 
 Package: gxde-kwin-wayland-backend-drm
+Conflicts: deepin-kwin-wayland-backend-drm
+Replaces: deepin-kwin-wayland-backend-drm
+Provides: deepin-kwin-wayland-backend-drm,kwin-wayland-backend
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Provides: kwin-wayland-backend
 Description: KDE window manager drm plugin
  KWin (pronounced as one syllable "deepin-kwin") is the window
  manager for the KDE Plasma Desktop. It gives you complete
@@ -211,10 +223,12 @@ Description: KDE window manager drm plugin
  This package is part of the KDE base workspace module
 
 Package: gxde-kwin-wayland-backend-fbdev
+Conflicts: deepin-kwin-wayland-backend-fbdev
+Replaces: deepin-kwin-wayland-backend-fbdev
+Provides: deepin-kwin-wayland-backend-fbdev,kwin-wayland-backend
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Provides: kwin-wayland-backend
 Description: KDE window manager fbdev plugin
  KWin (pronounced as one syllable "deepin-kwin") is the window
  manager for the KDE Plasma Desktop. It gives you complete
@@ -227,10 +241,12 @@ Description: KDE window manager fbdev plugin
  This package is part of the KDE base workspace module
 
 Package: gxde-kwin-wayland-backend-virtual
+Conflicts: deepin-kwin-wayland-backend-virtual
+Replaces: deepin-kwin-wayland-backend-virtual
+Provides: deepin-kwin-wayland-backend-virtual,kwin-wayland-backend
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Provides: kwin-wayland-backend
 Description: KDE window manager virtual plugin
  KWin (pronounced as one syllable "deepin-kwin") is the window
  manager for the KDE Plasma Desktop. It gives you complete
@@ -244,10 +260,12 @@ Description: KDE window manager virtual plugin
  useful for testing, or in the Cloud.
 
 Package: gxde-kwin-wayland-backend-wayland
+Conflicts: deepin-kwin-wayland-backend-wayland
+Replaces: deepin-kwin-wayland-backend-wayland
+Provides: deepin-kwin-wayland-backend-wayland,kwin-wayland-backend
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Provides: kwin-wayland-backend
 Description: KDE window manager nested wayland plugin
  KWin (pronounced as one syllable "deepin-kwin") is the window
  manager for the KDE Plasma Desktop. It gives you complete
@@ -260,10 +278,12 @@ Description: KDE window manager nested wayland plugin
  This package is part of the KDE base workspace module
 
 Package: gxde-kwin-wayland-backend-x11
+Conflicts: deepin-kwin-wayland-backend-x11
+Replaces: deepin-kwin-wayland-backend-x11
+Provides: deepin-kwin-wayland-backend-x11,kwin-wayland-backend
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Provides: kwin-wayland-backend
 Description: KDE window manager x11 plugin
  KWin (pronounced as one syllable "deepin-kwin") is the window
  manager for the KDE Plasma Desktop. It gives you complete
@@ -276,10 +296,12 @@ Description: KDE window manager x11 plugin
  This package is part of the KDE base workspace module
 
 Package: gxde-kwin-x11
+Conflicts: deepin-kwin-x11
+Replaces: deepin-kwin-x11
+Provides: deepin-kwin-x11,deepin-kwin, x-window-manager
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}, dde-qt5xcb-plugin(>= 5.6.21)
 Breaks: gxde-kwin-addons (<< 4:5.14)
-Provides: deepin-kwin, x-window-manager
 Description: KDE window manager, X11 version
  KWin (pronounced as one syllable "deepin-kwin") is the window
  manager for the KDE Plasma Desktop. It gives you complete
@@ -292,11 +314,13 @@ Description: KDE window manager, X11 version
  This package is part of the KDE base workspace module.
 
 Package: libgxde-kwineffects13
+Conflicts: libdeepin-kwineffects13
+Provides: libdeepin-kwineffects13
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Breaks: libgxde-kwin4-effect-builtins1, libgxde-kwineffects12
-Replaces: libkwin4-effect-builtins1, libkwineffects12
+Replaces: libkwin4-effect-builtins1, libkwineffects12,libdeepin-kwineffects13
 Description: KDE window manager effects library
  KWin (pronounced as one syllable "deepin-kwin") is the window
  manager for the KDE Plasma Desktop. It gives you complete
@@ -309,6 +333,9 @@ Description: KDE window manager effects library
  This package is part of the KDE base workspace module.
 
 Package: libgxde-kwinglutils13
+Conflicts: libdeepin-kwinglutils13
+Replaces: libdeepin-kwinglutils13
+Provides: libdeepin-kwinglutils13
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
@@ -325,6 +352,9 @@ Description: KDE window manager gl utils library
  This package is part of the KDE base workspace module.
 
 Package: libgxde-kwinxrenderutils13
+Conflicts: libdeepin-kwinxrenderutils13
+Replaces: libdeepin-kwinxrenderutils13
+Provides: libdeepin-kwinxrenderutils13
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
