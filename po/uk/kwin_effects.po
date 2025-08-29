@@ -1,25 +1,28 @@
-# Translation of kwin_effects.po to Ukrainian
-# Copyright (C) 2007-2021 This_file_is_part_of_KDE
-# This file is distributed under the license LGPL version 2.1 or
-# version 3 or later versions approved by the membership of KDE e.V.
-#
-# Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>, 2007, 2008.
-# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2018, 2019, 2020, 2021, 2022.
+# translation of kwin_effects.po to British English
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kdebase package.
+# 
+# Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2008.
+# Andrew Coles <andrew_coles@yahoo.co.uk>, 2009, 2010.
+# Steve Allewell <steve.allewell@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Translators:
+# Gary Wang <wzc782970009@gmail.com>, 2025
+# Yuri Chornoivan <yurchor@ukr.net>, 2025
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: kwin_effects\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-03 03:02+0000\n"
-"PO-Revision-Date: 2022-12-02 16:12+0200\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
-"Language: uk\n"
+"PO-Revision-Date: 2025-06-24 07:00+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>, 2025\n"
+"Language-Team: Ukrainian (https://app.transifex.com/linuxdeepin/teams/3617/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.0\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
-"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConstantBlurDescription)
 #: blur/blur_config.ui:17
@@ -32,14 +35,14 @@ msgstr "Потужність розмивання:"
 #: blur/blur_config.ui:42 blur/blur_config.ui:108
 #, kde-format
 msgid "Light"
-msgstr "Слабкий"
+msgstr "Слабке"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConstantBlurStrong)
 #. i18n: ectx: property (text), widget (QLabel, labelConstantNoiseStrong)
 #: blur/blur_config.ui:74 blur/blur_config.ui:137
 #, kde-format
 msgid "Strong"
-msgstr "Сильний"
+msgstr "Сильне"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConstantNoiseDescription)
 #: blur/blur_config.ui:83
@@ -53,8 +56,7 @@ msgid ""
 "Select a position for color picking with left click or enter.\n"
 "Escape or right click to cancel."
 msgstr ""
-"Виберіть точку для взяття кольору клацанням лівої кнопки миші або "
-"натисканням Enter.\n"
+"Виберіть точку для взяття кольору клацанням лівої кнопки миші або натисканням Enter.\n"
 "Натисніть Esc або клацніть правою кнопкою, щоб скасувати."
 
 #: desktopgrid/desktopgrid_config.cpp:49 invert/invert_config.cpp:35
@@ -135,7 +137,7 @@ msgstr "Вгорі ліворуч"
 #: desktopgrid/desktopgrid_config.cpp:70
 #, kde-format
 msgid "Center"
-msgstr "По центру"
+msgstr "За центром"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: desktopgrid/desktopgrid_config.ui:17 mousemark/mousemark_config.ui:17
@@ -144,19 +146,22 @@ msgstr "По центру"
 msgid "Appearance"
 msgstr "Вигляд"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_DesktopLayoutMode)
+#. i18n: ectx: property (text), item, widget (QComboBox,
+#. kcfg_DesktopLayoutMode)
 #: desktopgrid/desktopgrid_config.ui:30
 #, kde-format
 msgid "Pager"
 msgstr "Пейджер"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_DesktopLayoutMode)
+#. i18n: ectx: property (text), item, widget (QComboBox,
+#. kcfg_DesktopLayoutMode)
 #: desktopgrid/desktopgrid_config.ui:35
 #, kde-format
 msgid "Automatic"
-msgstr "Автоматичний"
+msgstr "Автоматично"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_DesktopLayoutMode)
+#. i18n: ectx: property (text), item, widget (QComboBox,
+#. kcfg_DesktopLayoutMode)
 #: desktopgrid/desktopgrid_config.ui:40
 #, kde-format
 msgid "Custom"
@@ -204,7 +209,7 @@ msgstr "Природний"
 #: desktopgrid/desktopgrid_config.ui:147
 #, kde-format
 msgid "None"
-msgstr "Немає"
+msgstr "Жодного"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: desktopgrid/desktopgrid_config.ui:155
@@ -338,7 +343,8 @@ msgstr "Згасання до чорного (лише повноекранне 
 msgid "Animation duration:"
 msgstr "Тривалість анімації:"
 
-#. i18n: ectx: property (specialValueText), widget (QSpinBox, kcfg_AnimationDuration)
+#. i18n: ectx: property (specialValueText), widget (QSpinBox,
+#. kcfg_AnimationDuration)
 #: magiclamp/magiclamp_config.ui:36
 #, kde-format
 msgctxt "Duration of rotation"
@@ -385,19 +391,19 @@ msgstr "Увімкнути або вимкнути ефект клацання �
 #, kde-format
 msgctxt "Left mouse button"
 msgid "Left"
-msgstr "Ліва"
+msgstr "Ліворуч"
 
 #: mouseclick/mouseclick.cpp:42
 #, kde-format
 msgctxt "Middle mouse button"
 msgid "Middle"
-msgstr "Середня"
+msgstr "Посередині"
 
 #: mouseclick/mouseclick.cpp:43
 #, kde-format
 msgctxt "Right mouse button"
 msgid "Right"
-msgstr "Права"
+msgstr "Праворуч"
 
 #: mouseclick/mouseclick.h:60
 #, kde-format
@@ -520,7 +526,7 @@ msgstr "Очистити позначки мишки"
 msgctxt "Suffix"
 msgid " pixel"
 msgid_plural " pixels"
-msgstr[0] " пікселі"
+msgstr[0] " піксель"
 msgstr[1] " пікселі"
 msgstr[2] " пікселів"
 msgstr[3] " піксель"
@@ -630,8 +636,7 @@ msgid ""
 "Select window to screen shot with left click or enter.\n"
 "Escape or right click to cancel."
 msgstr ""
-"Виберіть вікно для створення знімка клацанням лівої кнопки миші або "
-"натисканням Enter.\n"
+"Виберіть вікно для створення знімка клацанням лівої кнопки миші або натисканням Enter.\n"
 "Натисніть Esc або клацніть правою кнопкою, щоб скасувати."
 
 #: screenshot/screenshotdbusinterface1.cpp:803
@@ -677,7 +682,7 @@ msgstr "Цей ефект не є тестом"
 #: showpaint/showpaint.cpp:38 showpaint/showpaint_config.cpp:38
 #, kde-format
 msgid "Toggle Show Paint"
-msgstr "Увімкнути або вимкнути показ малювання"
+msgstr "Увімкнути/Вимкнути показ малювання"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_Gaps)
 #: slide/slide_config.ui:17
@@ -829,7 +834,8 @@ msgstr "Shift"
 msgid "Meta"
 msgstr "Meta"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, KWin::TranslucencyEffectConfigForm)
+#. i18n: ectx: property (windowTitle), widget (QWidget,
+#. KWin::TranslucencyEffectConfigForm)
 #: translucency/package/contents/ui/config.ui:14
 #, kde-format
 msgid "Translucency"
@@ -911,26 +917,29 @@ msgstr "Контекстні меню:"
 msgid "Torn-off menus:"
 msgstr "Меню вимикання:"
 
-#: windowview/kcm/windowvieweffectkcm.cpp:42 windowview/windowvieweffect.cpp:45
+#: windowview/kcm/windowvieweffectkcm.cpp:42
+#: windowview/windowvieweffect.cpp:45
 #, kde-format
 msgid "Toggle Present Windows (Current desktop)"
-msgstr "Увімкнути або вимкнути «Показ вікон» (поточна стільниця)"
+msgstr "Увімкнути/Вимкнути «Показ вікон» (поточна стільниця)"
 
-#: windowview/kcm/windowvieweffectkcm.cpp:49 windowview/windowvieweffect.cpp:54
+#: windowview/kcm/windowvieweffectkcm.cpp:49
+#: windowview/windowvieweffect.cpp:54
 #, kde-format
 msgid "Toggle Present Windows (All desktops)"
-msgstr "Увімкнути або вимкнути «Показ вікон» (всі стільниці)"
+msgstr "Увімкнути/Вимкнути «Показ вікон» (всі стільниці)"
 
-#: windowview/kcm/windowvieweffectkcm.cpp:56 windowview/windowvieweffect.cpp:63
+#: windowview/kcm/windowvieweffectkcm.cpp:56
+#: windowview/windowvieweffect.cpp:63
 #, kde-format
 msgid "Toggle Present Windows (Window class)"
-msgstr "Увімкнути або вимкнути «Показ вікон» (клас вікон)"
+msgstr "Увімкнути/Вимкнути «Показ вікон» (клас вікон)"
 
-#: windowview/kcm/windowvieweffectkcm.cpp:62 windowview/windowvieweffect.cpp:72
+#: windowview/kcm/windowvieweffectkcm.cpp:62
+#: windowview/windowvieweffect.cpp:72
 #, kde-format
 msgid "Toggle Present Windows (Window class on current desktop)"
-msgstr ""
-"Увімкнути або вимкнути «Показ вікон» (клас Window на поточній стільниці)"
+msgstr "Увімкнути/Вимкнути «Показ вікон» (клас Window на поточній стільниці)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_IgnoreMinimized)
 #: windowview/kcm/windowvieweffectkcm.ui:56
@@ -1036,7 +1045,7 @@ msgstr "Пересунути збільшену область вниз"
 #: zoom/zoom.cpp:94 zoom/zoom_config.cpp:108
 #, kde-format
 msgid "Move Mouse to Focus"
-msgstr "Пересунути мишу для фокусування"
+msgstr "Пересувати мишу за фокусуванням"
 
 #: zoom/zoom.cpp:101 zoom/zoom_config.cpp:115
 #, kde-format
@@ -1056,12 +1065,12 @@ msgstr "Пересунути праворуч"
 #: zoom/zoom_config.cpp:94
 #, kde-format
 msgid "Move Up"
-msgstr "Пересунути вгору"
+msgstr "Пересунути вище"
 
 #: zoom/zoom_config.cpp:101
 #, kde-format
 msgid "Move Down"
-msgstr "Пересунути вниз"
+msgstr "Пересунути нижче"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, label)
 #. i18n: ectx: property (whatsThis), widget (QDoubleSpinBox, kcfg_ZoomFactor)
@@ -1078,7 +1087,8 @@ msgstr ""
 msgid "Zoom Factor:"
 msgstr "Коефіцієнт масштабування:"
 
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_EnableFocusTracking)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox,
+#. kcfg_EnableFocusTracking)
 #: zoom/zoom_config.ui:66
 #, kde-format
 msgid ""
@@ -1094,17 +1104,19 @@ msgstr ""
 msgid "Enable Focus Tracking"
 msgstr "Увімкнути стеження за фокусом"
 
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_EnableTextCaretTracking)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox,
+#. kcfg_EnableTextCaretTracking)
 #: zoom/zoom_config.ui:76
 #, kde-format
 msgid ""
-"Enable tracking of the text cursor. This needs QAccessible to be enabled per "
-"application (\"export QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1\")."
+"Enable tracking of the text cursor. This needs QAccessible to be enabled per"
+" application (\"export QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1\")."
 msgstr ""
 "Увімкнути стеження за текстовим курсором. У програмі має бути увімкнено "
 "QAccessible (\"export QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1\")."
 
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_EnableTextCaretTracking)
+#. i18n: ectx: property (text), widget (QCheckBox,
+#. kcfg_EnableTextCaretTracking)
 #: zoom/zoom_config.ui:79
 #, kde-format
 msgid "Enable Text Cursor Tracking"
@@ -1126,13 +1138,13 @@ msgstr "Видимість вказівника миші."
 #: zoom/zoom_config.ui:103
 #, kde-format
 msgid "Scale"
-msgstr "Масштабувати"
+msgstr "Масштаб"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_MousePointer)
 #: zoom/zoom_config.ui:108
 #, kde-format
 msgid "Keep"
-msgstr "Зберігати"
+msgstr "Залишити"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_MousePointer)
 #: zoom/zoom_config.ui:113
@@ -1150,7 +1162,7 @@ msgstr "Стеження за пересуванням вказівника ми
 #: zoom/zoom_config.ui:125
 #, kde-format
 msgid "Proportional"
-msgstr "Пропорційно"
+msgstr "Пропорційний"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_MouseTracking)
 #: zoom/zoom_config.ui:130
@@ -1162,7 +1174,7 @@ msgstr "За центром"
 #: zoom/zoom_config.ui:135
 #, kde-format
 msgid "Push"
-msgstr "Висунути"
+msgstr "Надіслати"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_MouseTracking)
 #: zoom/zoom_config.ui:140
@@ -1249,8 +1261,7 @@ msgstr "Стеження за вказівником:"
 #~ msgid ""
 #~ "If the Present Windows effect is enabled, it will be automatically "
 #~ "triggered."
-#~ msgstr ""
-#~ "Якщо увімкнено ефект «Презентація вікон», буде автоматично увімкнено."
+#~ msgstr "Якщо увімкнено ефект «Презентація вікон», буде автоматично увімкнено."
 
 #~ msgid "Switch desktop and activate window"
 #~ msgstr "Перемкнути стільницю і активувати вікно"
@@ -1371,8 +1382,8 @@ msgstr "Стеження за вказівником:"
 #~ msgctxt "Comment describing the KWin Effect"
 #~ msgid "Improve contrast and readability behind semi-transparent windows"
 #~ msgstr ""
-#~ "Покращення контрастності та придатності до читання тексту під "
-#~ "напівпрозорими вікнами"
+#~ "Покращення контрастності та придатності до читання тексту під напівпрозорими"
+#~ " вікнами"
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Desktop Grid"
@@ -1415,8 +1426,8 @@ msgstr "Стеження за вказівником:"
 #~ msgctxt "Comment describing the KWin Effect"
 #~ msgid "Highlight the appropriate window when hovering over taskbar entries"
 #~ msgstr ""
-#~ "Підсвічування відповідного вікна у відповідь на наведення вказівника миші "
-#~ "на елементи панелі задач"
+#~ "Підсвічування відповідного вікна у відповідь на наведення вказівника миші на"
+#~ " елементи панелі задач"
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Invert"
@@ -1441,8 +1452,8 @@ msgstr "Стеження за вказівником:"
 #~ msgctxt "Comment describing the KWin Effect"
 #~ msgid "A screen magnifier that looks like a fisheye lens"
 #~ msgstr ""
-#~ "Екранна лупа, яка робить вигляд стільниці схожим на зображення, отримане "
-#~ "з ефектом «риб’ячого ока»"
+#~ "Екранна лупа, яка робить вигляд стільниці схожим на зображення, отримане з "
+#~ "ефектом «риб’ячого ока»"
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Magic Lamp"
@@ -1466,11 +1477,11 @@ msgstr "Стеження за вказівником:"
 
 #~ msgctxt "Comment describing the KWin Effect"
 #~ msgid ""
-#~ "Creates an animation whenever a mouse button is clicked. This is useful "
-#~ "for screenrecordings/presentations"
+#~ "Creates an animation whenever a mouse button is clicked. This is useful for "
+#~ "screenrecordings/presentations"
 #~ msgstr ""
-#~ "Створення анімацій у відповідь на клацання кнопкою миші. Корисне для "
-#~ "записів демонстрацій та презентацій."
+#~ "Створення анімацій у відповідь на клацання кнопкою миші. Корисне для записів"
+#~ " демонстрацій та презентацій."
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Mouse Mark"
@@ -1495,19 +1506,18 @@ msgstr "Стеження за вказівником:"
 #~ msgctxt "Comment describing the KWin Effect"
 #~ msgid "Zoom out until all opened windows can be displayed side-by-side"
 #~ msgstr ""
-#~ "Зменшення масштабу вікон так, щоб всі відкриті вікна можна було "
-#~ "розташувати поряд"
+#~ "Зменшення масштабу вікон так, щоб всі відкриті вікна можна було розташувати "
+#~ "поряд"
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Resize Window"
 #~ msgstr "Зміна розмірів вікон"
 
 #~ msgctxt "Comment describing the KWin Effect"
-#~ msgid ""
-#~ "Resizes windows with a fast texture scale instead of updating contents"
+#~ msgid "Resizes windows with a fast texture scale instead of updating contents"
 #~ msgstr ""
-#~ "Зміна розмірів вікон швидким масштабуванням текстур замість оновлення "
-#~ "вмісту вікон"
+#~ "Зміна розмірів вікон швидким масштабуванням текстур замість оновлення вмісту"
+#~ " вікон"
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Screen Edge"
@@ -1657,7 +1667,7 @@ msgstr "Стеження за вказівником:"
 #~ msgstr "Показати стільницю"
 
 #~ msgid "Zoom"
-#~ msgstr "Масштабування"
+#~ msgstr "Масштаб"
 
 #~ msgid "Define how far away the windows should appear"
 #~ msgstr "Визначає, як далеко мають з’являтися вікна"
@@ -1719,7 +1729,7 @@ msgstr "Стеження за вказівником:"
 #~ msgstr "Показувати назву стільниці"
 
 #~ msgid "Reflection"
-#~ msgstr "Віддзеркалення"
+#~ msgstr "Відбиття"
 
 #~ msgid "Rotation duration:"
 #~ msgstr "Тривалість обертання:"
@@ -1737,7 +1747,7 @@ msgstr "Стеження за вказівником:"
 #~ msgstr "Вкладка 2"
 
 #~ msgid "Caps"
-#~ msgstr "Торці"
+#~ msgstr "Кінчики"
 
 #~ msgid "Cap color:"
 #~ msgstr "Колір торців:"
@@ -1752,12 +1762,10 @@ msgstr "Стеження за вказівником:"
 #~ msgstr "Додаткові параметри"
 
 #~ msgid ""
-#~ "If enabled the effect will be deactivated after rotating the cube with "
-#~ "the mouse,\n"
+#~ "If enabled the effect will be deactivated after rotating the cube with the mouse,\n"
 #~ "otherwise it will remain active"
 #~ msgstr ""
-#~ "За позначення пункту, куб буде дезактивовано після обертання його за "
-#~ "допомогою миші.\n"
+#~ "За позначення пункту, куб буде дезактивовано після обертання його за допомогою миші.\n"
 #~ "У іншому випадку куб залишиться активним"
 
 #~ msgid "Close after mouse dragging"
@@ -1796,8 +1804,7 @@ msgstr "Стеження за вказівником:"
 
 #~ msgctxt "Comment describing the KWin Effect"
 #~ msgid "Display a Cover Flow effect for the alt+tab window switcher"
-#~ msgstr ""
-#~ "Демонстрація ефекту поверхневої течії для перемикача вікон за Alt+Tab"
+#~ msgstr "Демонстрація ефекту поверхневої течії для перемикача вікон за Alt+Tab"
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Desktop Cube"
@@ -1868,22 +1875,19 @@ msgstr "Стеження за вказівником:"
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Dim Screen for Administrator Mode"
-#~ msgstr "Тьмяний екран для режиму адміністратора"
+#~ msgstr "Притлумлення кольорів у режимі адміністратора"
 
 #~ msgctxt "Comment describing the KWin Effect"
 #~ msgid "Darkens the entire screen when requesting root privileges"
-#~ msgstr ""
-#~ "Затемнення всього екрана, якщо показано запит щодо пароля адміністратора"
+#~ msgstr "Притлумлює кольори усього екрана, коли працюємо з доступом root"
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Scale"
-#~ msgstr "Масштабування"
+#~ msgstr "Масштаб"
 
 #~ msgctxt "Comment describing the KWin Effect"
 #~ msgid "Make windows smoothly scale in and out when they are shown or hidden"
-#~ msgstr ""
-#~ "Плавне масштабування зі збільшенням або зменшенням вікон під час їх появи "
-#~ "або приховування"
+#~ msgstr "Плавне масштабування вікон при появі або приховуванні"
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Minimize Animation"
@@ -1894,26 +1898,26 @@ msgstr "Стеження за вказівником:"
 #~ msgstr "Оживлення мінімізації вікон"
 
 #~ msgid "Trigger on"
-#~ msgstr "Вмикання у відповідь"
+#~ msgstr ""
 
 #~ msgid "Shortcut"
 #~ msgstr "Скорочення"
 
 #~ msgid "Apply effect to &panels"
-#~ msgstr "Застосувати ефект до &панелей"
+#~ msgstr ""
 
 #~ msgid "Apply effect to the desk&top"
-#~ msgstr "Застосувати ефект до &стільниці"
+#~ msgstr ""
 
 #~ msgid "Apply effect to &keep-above windows"
-#~ msgstr "Застосувати ефект до ві&кон над іншими вікнами"
+#~ msgstr ""
 
 #~ msgid "Apply effect to &groups"
-#~ msgstr "Застосувати ефект до &груп"
+#~ msgstr ""
 
 #~ msgctxt "Comment describing the KWin Effect"
 #~ msgid "Windows Glide Effect as they are open and closed"
-#~ msgstr "Ефекти плину вікон під час відкриття та закриття"
+#~ msgstr ""
 
 #~ msgid "Glide Effect:"
 #~ msgstr "Ефект ковзання:"
@@ -1928,63 +1932,54 @@ msgstr "Стеження за вказівником:"
 #~ msgstr "Кут ковзання:"
 
 #~ msgid "-90"
-#~ msgstr "-90°"
+#~ msgstr "-90"
 
 #~ msgid "90"
-#~ msgstr "90°"
-
-#~ msgctxt "Duration of the slide animation"
-#~ msgid "Default"
-#~ msgstr "Типова"
+#~ msgstr "90"
 
 #~ msgid "Strength of the effect:"
-#~ msgstr "Потужність ефекту:"
-
-#~ msgid "Use simple fullscreen blur"
-#~ msgstr "Використовувати просте повноекранне розмивання"
+#~ msgstr ""
 
 #~ msgid "Save intermediate rendering results."
-#~ msgstr "Зберігати проміжні результати обробки"
+#~ msgstr ""
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Logout"
-#~ msgstr "Вихід"
+#~ msgstr "Вийти"
 
 #~ msgctxt "Comment describing the KWin Effect"
 #~ msgid "Desaturate the desktop when displaying the logout dialog"
 #~ msgstr ""
-#~ "Зменшення насиченості кольорів стільниці під час показу вікна виходу"
 
 #~ msgid "Brightness of the background:"
-#~ msgstr "Яскравість тла:"
+#~ msgstr ""
 
 #~ msgctxt "Less brightness"
 #~ msgid "Darker"
-#~ msgstr "темніше"
+#~ msgstr "Темніше"
 
 #~ msgctxt "More brightness"
 #~ msgid "Lighter"
-#~ msgstr "світліше"
+#~ msgstr "Світліше"
 
 #~ msgid "Saturation of the background:"
-#~ msgstr "Насиченість тла:"
+#~ msgstr ""
 
 #~ msgctxt "No saturation"
 #~ msgid "Gray"
-#~ msgstr "сіре"
+#~ msgstr "Сірий"
 
 #~ msgid "Duration of the fade:"
-#~ msgstr "Тривалість згасання:"
+#~ msgstr ""
 
 #~ msgid "ms"
 #~ msgstr "мс"
 
 #~ msgid "The blur effect must be enabled before it can be used."
 #~ msgstr ""
-#~ "Перш ніж користуватися цим ефектом, слід увімкнути ефект розмивання."
 
 #~ msgid "Apply blur effect to background"
-#~ msgstr "Застосувати ефект розмивання до тла"
+#~ msgstr ""
 
 #~ msgctxt "Name of a KWin Effect"
 #~ msgid "Dashboard"
@@ -1993,5 +1988,768 @@ msgstr "Стеження за вказівником:"
 #~ msgctxt "Comment describing the KWin Effect"
 #~ msgid "Desaturate the desktop when displaying the Plasma dashboard"
 #~ msgstr ""
-#~ "Зменшення насиченості кольорів стільниці під час показу панелі приладів "
-#~ "Плазми"
+
+#~ msgid "Decorations:"
+#~ msgstr "Декорування:"
+
+#~ msgid "Background window &opacity:"
+#~ msgstr ""
+
+#~ msgid "&Elevate selected window"
+#~ msgstr ""
+
+#~ msgid "&Animate walk through windows"
+#~ msgstr ""
+
+#~ msgid "Use additional thumbnail bar"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Only show thumbnail bar if there are at least specified number of windows"
+#~ msgstr ""
+
+#~ msgid "Dynamic mode"
+#~ msgstr ""
+
+#~ msgid "Number of windows:"
+#~ msgstr ""
+
+#~ msgid " row"
+#~ msgid_plural " rows"
+#~ msgstr[0] " рядок"
+#~ msgstr[1] " рядки"
+#~ msgstr[2] " рядків"
+#~ msgstr[3] " рядок"
+
+#~ msgctxt "Duration of fading"
+#~ msgid "Default"
+#~ msgstr "Типова"
+
+#~ msgid "Toggle Video Recording"
+#~ msgstr ""
+
+#~ msgid "Path to save video:"
+#~ msgstr ""
+
+#~ msgid "Slide when switching tabs"
+#~ msgstr ""
+
+#~ msgctxt ""
+#~ "Window geometry display, %1 and %2 are the new size, %3 and %4 are pixel "
+#~ "increments - avoid reformatting or suffixes like 'px'"
+#~ msgid ""
+#~ "Width: %1 (%3)\n"
+#~ "Height: %2 (%4)"
+#~ msgstr ""
+#~ "Ширина: %1 (%3)\n"
+#~ "Висота: %2 (%4)"
+
+#~ msgctxt ""
+#~ "Window geometry display, %1 and %2 are the cartesian x and y coordinates - "
+#~ "avoid reformatting or suffixes like 'px'"
+#~ msgid ""
+#~ "X: %1\n"
+#~ "Y: %2"
+#~ msgstr ""
+#~ "X: %1\n"
+#~ "Y: %2"
+
+#~ msgctxt ""
+#~ "Window geometry display, %1 and %2 are the cartesian x and y coordinates, %3"
+#~ " and %4 are the resp. increments - avoid reformatting or suffixes like 'px'"
+#~ msgid ""
+#~ "X: %1 (%3)\n"
+#~ "Y: %2 (%4)"
+#~ msgstr ""
+#~ "X: %1 (%3)\n"
+#~ "Y: %2 (%4)"
+
+#~ msgid "Snow"
+#~ msgstr "Сніг"
+
+#~ msgid "Toggle Snow on Desktop"
+#~ msgstr ""
+
+#~ msgid " pixel/frame"
+#~ msgid_plural " pixels/frame"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+#~ msgstr[2] ""
+#~ msgstr[3] ""
+
+#~ msgctxt "@action Enables/Disables an effect that makes windows more sharp"
+#~ msgid "Toggle Sharpen Effect"
+#~ msgstr ""
+
+#~ msgid "&Number of snowflakes:"
+#~ msgstr ""
+
+#~ msgid "M&inimum size of snowflake:"
+#~ msgstr ""
+
+#~ msgid "M&aximum size of snowflake:"
+#~ msgstr ""
+
+#~ msgid "Maximum &vertical speed:"
+#~ msgstr "Максимальна &вертикальна швидкість:"
+
+#~ msgid "Maximum &horizontal speed:"
+#~ msgstr ""
+
+#~ msgid "Snow &behind windows"
+#~ msgstr ""
+
+#~ msgid "&X offset:"
+#~ msgstr "Зміщення за &X:"
+
+#~ msgid "&Y offset:"
+#~ msgstr "Зміщення за &Y:"
+
+#~ msgid "%"
+#~ msgstr ""
+
+#~ msgid "&Fuzziness:"
+#~ msgstr "&Нечіткість:"
+
+#~ msgid "&Size:"
+#~ msgstr "&Розмір:"
+
+#~ msgid "&Active windows have stronger shadows"
+#~ msgstr ""
+
+#~ msgid "Hold Ctrl+Meta keys to see where the mouse cursor is."
+#~ msgstr ""
+
+#~ msgid "Rearrange &duration:"
+#~ msgstr ""
+
+#~ msgctxt "Duration of rearrangement"
+#~ msgid "Default"
+#~ msgstr "Типова"
+
+#~ msgid "Animate &flip"
+#~ msgstr ""
+
+#~ msgid "Custom..."
+#~ msgstr "Нетиповий…"
+
+#~ msgid "Default Shadow"
+#~ msgstr ""
+
+#~ msgid "Decoration Shadows"
+#~ msgstr ""
+
+#~ msgid "&Decorated windows"
+#~ msgstr ""
+
+#~ msgid "Force default shadows for:"
+#~ msgstr ""
+
+#~ msgid "&Undecorated normal windows"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If enabled span the cube across all screens on a multiscreen setup, otherwise\n"
+#~ "the cube will only be displayed on a single screen"
+#~ msgstr ""
+
+#~ msgid "Span cube on all screens in multi screen setup"
+#~ msgstr ""
+
+#~ msgid "Shadow size (relative to window):"
+#~ msgstr ""
+
+#~ msgid "Advanced opacity settings for menus:"
+#~ msgstr ""
+
+#~ msgid "Set individual opacity for different menu types"
+#~ msgstr ""
+
+#~ msgid "Mean With Mean"
+#~ msgstr ""
+
+#~ msgid "Mean With Median"
+#~ msgstr ""
+
+#~ msgid "Activate when cursor is at a specific edge or corner of the screen:"
+#~ msgstr ""
+
+#~ msgid "Toggle Expose Effect (incl. other desktops)"
+#~ msgstr ""
+
+#~ msgid "Grid Parameters"
+#~ msgstr ""
+
+#~ msgid "Grid Minimal Tesselation"
+#~ msgstr ""
+
+#~ msgid "Grid Filter"
+#~ msgstr ""
+
+#~ msgid "Velocity"
+#~ msgstr "Швидкість"
+
+#~ msgid "Ring Mean (4 ways)"
+#~ msgstr ""
+
+#~ msgid "Ring Mean (8 ways)"
+#~ msgstr ""
+
+#~ msgid "Thresholds"
+#~ msgstr "Порогові значення"
+
+#~ msgid "Min Velocity"
+#~ msgstr ""
+
+#~ msgid "Max Velocity"
+#~ msgstr ""
+
+#~ msgid "Min Acceleration"
+#~ msgstr ""
+
+#~ msgid "Max Acceleration"
+#~ msgstr ""
+
+#~ msgid "Window '%1' demands attention."
+#~ msgstr ""
+
+#~ msgid "Required X extensions (XComposite and XDamage) are not available."
+#~ msgstr "Немає потрібних розширень X (XComposite і XDamage)."
+
+#~ msgid "GLX/OpenGL are not available and only OpenGL support is compiled."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "XRender/XFixes extensions are not available and only XRender support is "
+#~ "compiled."
+#~ msgstr ""
+
+#~ msgid "GLX/OpenGL and XRender/XFixes are not available."
+#~ msgstr ""
+
+#~ msgid "System"
+#~ msgstr "Система"
+
+#~ msgid "Walk Through Windows (Reverse)"
+#~ msgstr "Пройтись по вікнах (назад)"
+
+#~ msgid "Walk Through Desktops"
+#~ msgstr "Пройтись стільницями"
+
+#~ msgid "Walk Through Desktops (Reverse)"
+#~ msgstr "Пройтись стільницями (назад)"
+
+#~ msgid "Walk Through Desktop List (Reverse)"
+#~ msgstr "Пройтись списком стільниць (назад)"
+
+#~ msgid "Maximize Window Vertically"
+#~ msgstr "Максимізувати вікно вертикально"
+
+#~ msgid "Maximize Window Horizontally"
+#~ msgstr "Максимізувати вікно горизонтально"
+
+#~ msgid "Shade Window"
+#~ msgstr "Згорнути вікно"
+
+#~ msgid "Raise Window"
+#~ msgstr "Підняти вікно"
+
+#~ msgid "Lower Window"
+#~ msgstr "Опустити вікно"
+
+#~ msgid "Toggle Window Raise/Lower"
+#~ msgstr "Перемкнути підняття/опускання вікна"
+
+#~ msgid "Make Window Fullscreen"
+#~ msgstr "Розгорнути вікно на весь екран"
+
+#~ msgid "Hide Window Border"
+#~ msgstr "Сховати границю вікна"
+
+#~ msgid "Keep Window Above Others"
+#~ msgstr "Утримувати вікно понад іншими"
+
+#~ msgid "Keep Window Below Others"
+#~ msgstr "Утримувати вікно під іншими"
+
+#~ msgid "Activate Window Demanding Attention"
+#~ msgstr "Задіяти вікно, що потребує уваги"
+
+#~ msgid "Setup Window Shortcut"
+#~ msgstr "Скорочення до вікна налаштування"
+
+#~ msgid "Pack Window to the Right"
+#~ msgstr "Пакувати вікно праворуч"
+
+#~ msgid "Pack Window to the Left"
+#~ msgstr "Пакувати вікно ліворуч"
+
+#~ msgid "Pack Window Up"
+#~ msgstr "Пакувати вікно вгору"
+
+#~ msgid "Pack Window Down"
+#~ msgstr "Пакувати вікно вниз"
+
+#~ msgid "Pack Grow Window Horizontally"
+#~ msgstr "Пакувати вікно зі збільшенням горизонтально"
+
+#~ msgid "Pack Grow Window Vertically"
+#~ msgstr "Пакувати вікно зі збільшенням вертикально"
+
+#~ msgid "Pack Shrink Window Horizontally"
+#~ msgstr "Пакувати вікно зі зменшенням горизонтально"
+
+#~ msgid "Pack Shrink Window Vertically"
+#~ msgstr "Пакувати вікно зі зменшенням вертикально"
+
+#~ msgid "Window & Desktop"
+#~ msgstr ""
+
+#~ msgid "Window to Desktop 1"
+#~ msgstr "Вікно на стільницю 1"
+
+#~ msgid "Window to Desktop 2"
+#~ msgstr "Вікно на стільницю 2"
+
+#~ msgid "Window to Desktop 3"
+#~ msgstr "Вікно на стільницю 3"
+
+#~ msgid "Window to Desktop 4"
+#~ msgstr "Вікно на стільницю 4"
+
+#~ msgid "Window to Desktop 5"
+#~ msgstr "Вікно на стільницю 5"
+
+#~ msgid "Window to Desktop 6"
+#~ msgstr "Вікно на стільницю 6"
+
+#~ msgid "Window to Desktop 7"
+#~ msgstr "Вікно на стільницю 7"
+
+#~ msgid "Window to Desktop 8"
+#~ msgstr "Вікно на стільницю 8"
+
+#~ msgid "Window to Desktop 9"
+#~ msgstr "Вікно на стільницю 9"
+
+#~ msgid "Window to Desktop 10"
+#~ msgstr "Вікно на стільницю 10"
+
+#~ msgid "Window to Desktop 11"
+#~ msgstr "Вікно на стільницю 11"
+
+#~ msgid "Window to Desktop 12"
+#~ msgstr "Вікно на стільницю 12"
+
+#~ msgid "Window to Desktop 13"
+#~ msgstr "Вікно на стільницю 13"
+
+#~ msgid "Window to Desktop 14"
+#~ msgstr "Вікно на стільницю 14"
+
+#~ msgid "Window to Desktop 15"
+#~ msgstr "Вікно на стільницю 15"
+
+#~ msgid "Window to Desktop 16"
+#~ msgstr "Вікно на стільницю 16"
+
+#~ msgid "Window to Desktop 17"
+#~ msgstr "Вікно на стільницю 17"
+
+#~ msgid "Window to Desktop 18"
+#~ msgstr "Вікно на стільницю 18"
+
+#~ msgid "Window to Desktop 19"
+#~ msgstr "Вікно на стільницю 19"
+
+#~ msgid "Window to Desktop 20"
+#~ msgstr "Вікно на стільницю 20"
+
+#~ msgid "Window to Previous Desktop"
+#~ msgstr "Вікно на попередню стільницю"
+
+#~ msgid "Window One Desktop to the Right"
+#~ msgstr "Вікно на одну стільницю праворуч"
+
+#~ msgid "Window One Desktop to the Left"
+#~ msgstr "Вікно на одну стільницю ліворуч"
+
+#~ msgid "Window One Desktop Up"
+#~ msgstr "Вікно на одну стільницю вгору"
+
+#~ msgid "Window One Desktop Down"
+#~ msgstr "Вікно на одну стільницю вниз"
+
+#~ msgid "Window to Screen 0"
+#~ msgstr "Вікно на екран 0"
+
+#~ msgid "Window to Screen 1"
+#~ msgstr "Вікно на екран 1"
+
+#~ msgid "Window to Screen 2"
+#~ msgstr "Вікно на екран 2"
+
+#~ msgid "Window to Screen 3"
+#~ msgstr "Вікно на екран 3"
+
+#~ msgid "Window to Screen 4"
+#~ msgstr "Вікно на екран 4"
+
+#~ msgid "Window to Screen 5"
+#~ msgstr "Вікно на екран 5"
+
+#~ msgid "Window to Screen 6"
+#~ msgstr "Вікно на екран 6"
+
+#~ msgid "Window to Screen 7"
+#~ msgstr "Вікно на екран 7"
+
+#~ msgid "Desktop Switching"
+#~ msgstr "Перемикання стільниць"
+
+#~ msgid "Switch to Desktop 1"
+#~ msgstr "Перемкнутися на стільницю 1"
+
+#~ msgid "Switch to Desktop 2"
+#~ msgstr "Перемкнутися на стільницю 2"
+
+#~ msgid "Switch to Desktop 3"
+#~ msgstr "Перемкнутися на стільницю 3"
+
+#~ msgid "Switch to Desktop 4"
+#~ msgstr "Перемкнутися на стільницю 4"
+
+#~ msgid "Switch to Desktop 5"
+#~ msgstr "Перемкнутися на стільницю 5"
+
+#~ msgid "Switch to Desktop 6"
+#~ msgstr "Перемкнутися на стільницю 6"
+
+#~ msgid "Switch to Desktop 7"
+#~ msgstr "Перемкнутися на стільницю 7"
+
+#~ msgid "Switch to Desktop 8"
+#~ msgstr "Перемкнутися на стільницю 8"
+
+#~ msgid "Switch to Desktop 9"
+#~ msgstr "Перемкнутися на стільницю 9"
+
+#~ msgid "Switch to Desktop 10"
+#~ msgstr "Перемкнутися на стільницю 10"
+
+#~ msgid "Switch to Desktop 11"
+#~ msgstr "Перемкнутися на стільницю 11"
+
+#~ msgid "Switch to Desktop 12"
+#~ msgstr "Перемкнутися на стільницю 12"
+
+#~ msgid "Switch to Desktop 13"
+#~ msgstr "Перемкнутися на стільницю 13"
+
+#~ msgid "Switch to Desktop 14"
+#~ msgstr "Перемкнутися на стільницю 14"
+
+#~ msgid "Switch to Desktop 15"
+#~ msgstr "Перемкнутися на стільницю 15"
+
+#~ msgid "Switch to Desktop 16"
+#~ msgstr "Перемкнутися на стільницю 16"
+
+#~ msgid "Switch to Desktop 17"
+#~ msgstr "Перемкнутися на стільницю 17"
+
+#~ msgid "Switch to Desktop 18"
+#~ msgstr "Перемкнутися на стільницю 18"
+
+#~ msgid "Switch to Desktop 19"
+#~ msgstr "Перемкнутися на стільницю 19"
+
+#~ msgid "Switch to Desktop 20"
+#~ msgstr "Перемкнутися на стільницю 20"
+
+#~ msgid "Switch to Next Desktop"
+#~ msgstr "До наступної стільниці"
+
+#~ msgid "Switch to Previous Desktop"
+#~ msgstr "До попередньої стільниці"
+
+#~ msgid "Switch One Desktop to the Right"
+#~ msgstr "Однією стільницею праворуч"
+
+#~ msgid "Switch One Desktop to the Left"
+#~ msgstr "Однією стільницею ліворуч"
+
+#~ msgid "Switch One Desktop Up"
+#~ msgstr "Однією стільницею вгору"
+
+#~ msgid "Switch to Screen 0"
+#~ msgstr "Перемкнути на екран 0"
+
+#~ msgid "Switch to Screen 1"
+#~ msgstr "Перемкнути на екран 1"
+
+#~ msgid "Switch to Screen 2"
+#~ msgstr "Перемкнути на екран 2"
+
+#~ msgid "Switch to Screen 3"
+#~ msgstr "Перемкнути на екран 3"
+
+#~ msgid "Switch to Screen 4"
+#~ msgstr "Перемкнути на екран 4"
+
+#~ msgid "Switch to Screen 5"
+#~ msgstr "Перемкнути на екран 5"
+
+#~ msgid "Switch to Screen 6"
+#~ msgstr "Перемкнути на екран 6"
+
+#~ msgid "Switch to Screen 7"
+#~ msgstr "Перемкнути на екран 7"
+
+#~ msgid "Switch to Next Screen"
+#~ msgstr "Перемкнути на наступний екран"
+
+#~ msgid "Miscellaneous"
+#~ msgstr "Різне"
+
+#~ msgid "Window Screenshot to Clipboard"
+#~ msgstr ""
+
+#~ msgid "Desktop Screenshot to Clipboard"
+#~ msgstr ""
+
+#~ msgid "Block Global Shortcuts"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "kwin: it looks like there's already a window manager running. kwin not "
+#~ "started.\n"
+#~ msgstr ""
+
+#~ msgid "kwin: failure during initialization; aborting"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "KWin is unstable.\n"
+#~ "It seems to have crashed several times in a row.\n"
+#~ "You can select another window manager to run:"
+#~ msgstr ""
+#~ "KWin працює нестабільно.\n"
+#~ "Його роботу було аварійно завершено декілька раз поспіль.\n"
+#~ "Ви можете вибрати іншу програму керування вікнами:"
+
+#~ msgid ""
+#~ "kwin: unable to claim manager selection, another wm running? (try using "
+#~ "--replace)\n"
+#~ msgstr ""
+#~ "kwin: неможливо отримати вибір менеджера, можливо запущено інший менеджер "
+#~ "вікон? (спробуйте параметр --replace)\n"
+
+#~ msgid "(c) 1999-2005, The KDE Developers"
+#~ msgstr "© Розробники KDE, 1999–2005"
+
+#~ msgid "Matthias Ettrich"
+#~ msgstr "Matthias Ettrich"
+
+#~ msgid "Cristian Tibirna"
+#~ msgstr "Cristian Tibirna"
+
+#~ msgid "Daniel M. Duley"
+#~ msgstr "Daniel M. Duley"
+
+#~ msgid "Luboš Luňák"
+#~ msgstr "Luboš Luňák"
+
+#~ msgid "Maintainer"
+#~ msgstr "Супровідник"
+
+#~ msgid "Disable configuration options"
+#~ msgstr "Вимкнути параметри налаштування"
+
+#~ msgid "Replace already-running ICCCM2.0-compliant window manager"
+#~ msgstr "Замістити вже завантажений менеджер вікон, сумісний з ICCCM2.0"
+
+#~ msgid "Indicate that KWin has recently crashed n times"
+#~ msgstr "Повідомляє, що KWin нещодавно аварійно завершився n разів"
+
+#~ msgid "KWin: "
+#~ msgstr "KWin: "
+
+#~ msgid ""
+#~ "\n"
+#~ "KWin will now exit..."
+#~ msgstr ""
+#~ "\n"
+#~ "Тепер KWin завершить роботу..."
+
+#~ msgid "*** No Windows ***"
+#~ msgstr "*** Немає вікон ***"
+
+#~ msgid "Keep &Above Others"
+#~ msgstr "Утримувати &понад іншими"
+
+#~ msgid "Keep &Below Others"
+#~ msgstr "Утримувати п&ід іншими"
+
+#~ msgid "&No Border"
+#~ msgstr "&Без рамок"
+
+#~ msgid "Window &Shortcut..."
+#~ msgstr ""
+
+#~ msgid "&Special Window Settings..."
+#~ msgstr ""
+
+#~ msgid "&Special Application Settings..."
+#~ msgstr ""
+
+#~ msgid "Re&size"
+#~ msgstr "Змінити &розмір"
+
+#~ msgid "Mi&nimize"
+#~ msgstr "Мін&імізувати"
+
+#~ msgid "Ma&ximize"
+#~ msgstr "&Максимізувати"
+
+#~ msgid "Sh&ade"
+#~ msgstr "&Тінь"
+
+#~ msgid "Configur&e Window Behavior..."
+#~ msgstr "Нала&штувати поведінку вікон..."
+
+#~ msgid "&All Desktops"
+#~ msgstr "&Всі стільниці"
+
+#~ msgid ""
+#~ "You have selected to show a window without its border.\n"
+#~ "Without the border, you will not be able to enable the border again using the mouse: use the window operations menu instead, activated using the %1 keyboard shortcut."
+#~ msgstr ""
+#~ "Ви вибрали відображення вікна без рамки.\n"
+#~ "Коли рамка не відображається, неможливо ввімкнути її за допомогою мишки. Натомість використовуйте меню дій над вікнами, яке активується скороченням клавіатури %1."
+
+#~ msgid ""
+#~ "You have selected to show a window in fullscreen mode.\n"
+#~ "If the application itself does not have an option to turn the fullscreen mode off you will not be able to disable it again using the mouse: use the window operations menu instead, activated using the %1 keyboard shortcut."
+#~ msgstr ""
+#~ "Ви вибрали повноекранний режим для вікна.\n"
+#~ "Якщо програма не має можливості вимкнути повноекранний режим, буде неможливо перейти в звичайний режим за допомогою мишки. Натомість використовуйте меню дій над вікнами, яке активується скороченням клавіатури %1."
+
+#~ msgid "KWin helper utility"
+#~ msgstr "Допоміжна утиліта KWin"
+
+#~ msgid "PID of the application to terminate."
+#~ msgstr "PID програми, яку слід завершити."
+
+#~ msgid "Hostname on which the application is running."
+#~ msgstr "Назва вузла, на якому виконується програма."
+
+#~ msgid "Caption of the window to be terminated."
+#~ msgstr "Підпис вікна, яке слід завершити."
+
+#~ msgid "Name of the application to be terminated."
+#~ msgstr "Назва програми, яку слід завершити."
+
+#~ msgid "ID of resource belonging to the application."
+#~ msgstr "ІД ресурсу, який належить цій програмі/"
+
+#~ msgid "This helper utility is not supposed to be called directly."
+#~ msgstr "Цю допоміжну утиліту не можна викликати напряму."
+
+#~ msgid ""
+#~ "<p>Window with title \"<b>%2</b>\" is not responding. This window belongs to"
+#~ " application <b>%1</b> (PID=%3, hostname=%4).</p><p>Do you wish to terminate"
+#~ " this application? (All unsaved data in this application will be lost.)</p>"
+#~ msgstr ""
+
+#~ msgid "Terminate"
+#~ msgstr "Перервати"
+
+#~ msgid "Keep Running"
+#~ msgstr "Продовжити роботу"
+
+#~ msgid "<center><b>%1 preview</b></center>"
+#~ msgstr "<center><b>Попередній перегляд %1</b></center>"
+
+#~ msgid "Not on all desktops"
+#~ msgstr "Не на усіх стільницях"
+
+#~ msgid "On all desktops"
+#~ msgstr "На всіх стільницях"
+
+#~ msgid "Help"
+#~ msgstr "Довідка"
+
+#~ msgid "Minimize"
+#~ msgstr "Мінімізувати"
+
+#~ msgid "Restore"
+#~ msgstr "Відновити"
+
+#~ msgid "Maximize"
+#~ msgstr "Максимізувати"
+
+#~ msgid "Do not keep above others"
+#~ msgstr "Не тримати над іншими"
+
+#~ msgid "Do not keep below others"
+#~ msgstr "Не утримувати під іншими"
+
+#~ msgid "Keep below others"
+#~ msgstr "Утримувати під іншими"
+
+#~ msgid "Unshade"
+#~ msgstr "Розгорнути"
+
+#~ msgid "No window decoration plugin library was found."
+#~ msgstr ""
+
+#~ msgid "The default decoration plugin is corrupt and could not be loaded."
+#~ msgstr ""
+
+#~ msgid "The library %1 is not a KWin plugin."
+#~ msgstr ""
+
+#~ msgid "Reset opacity to default value"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Composite Manager could not be started.\\nMake sure you have \"kompmgr\""
+#~ " in a $PATH directory."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Composite Manager crashed twice within a minute and is therefore "
+#~ "disabled for this session."
+#~ msgstr ""
+
+#~ msgid "Composite Manager Failure"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<qt><b>kompmgr failed to open the display</b><br>There is probably an "
+#~ "invalid display entry in your ~/.xcompmgrrc.</qt>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<qt><b>kompmgr cannot find the Xrender extension</b><br>You are using either"
+#~ " an outdated or a crippled version of XOrg.<br>Get XOrg &ge; 6.8 from "
+#~ "www.freedesktop.org.<br></qt>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<qt><b>Composite extension not found</b><br>You <i>must</i> use XOrg &ge; "
+#~ "6.8 for translucency and shadows to work.<br>Additionally, you need to add a"
+#~ " new section to your X config file:<br><i>Section \"Extensions\"<br>Option "
+#~ "\"Composite\" \"Enable\"<br>EndSection</i></qt>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<qt><b>Damage extension not found</b><br>You <i>must</i> use XOrg &ge; 6.8 "
+#~ "for translucency and shadows to work.</qt>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<qt><b>XFixes extension not found</b><br>You <i>must</i> use XOrg &ge; 6.8 "
+#~ "for translucency and shadows to work.</qt>"
+#~ msgstr ""

@@ -39,6 +39,8 @@
 #include <KLocalizedString>
 #include <KStartupInfo>
 #include <KX11Extras>
+#include <KApplicationTrader>
+#include <KService>
 // Qt
 #include <QApplication>
 #include <QDebug>
@@ -536,6 +538,22 @@ bool X11Window::manage(xcb_window_t w, bool isMapped)
     if (desktopFileName.isEmpty()) {
         desktopFileName = QString::fromUtf8(info->gtkApplicationId());
     }
+
+    if (desktopFileName.isEmpty()) {
+        // Fallback to StartupWMClass for legacy apps
+        const auto service = KApplicationTrader::query([this](const KService::Ptr &service) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+            return service->property("StartupWMClass").toString().compare(resourceName(), Qt::CaseInsensitive) == 0;
+#else
+            return service->property<QString>("StartupWMClass").compare(resourceName(), Qt::CaseInsensitive) == 0;
+#endif
+        });
+
+        if (!service.isEmpty()) {
+            desktopFileName = service.constFirst()->desktopEntryName();
+        }
+    }
+
     setDesktopFileName(rules()->checkDesktopFile(desktopFileName, true));
     loadGioDesktopFileName();
     getIcons();
@@ -1996,7 +2014,7 @@ void X11Window::killProcess(bool ask, xcb_timestamp_t timestamp)
         return;
     }
     Q_ASSERT(!ask || timestamp != XCB_TIME_CURRENT_TIME);
-    pid_t pid = info->pid();
+    pid_t pid = this->pid();
     if (pid <= 0 || clientMachine()->hostName().isEmpty()) { // Needed properties missing
         return;
     }
@@ -2129,7 +2147,7 @@ bool X11Window::takeFocus()
         if (workspace()->showingDesktop()) {
             // 最小化其它所有窗口
             for (Window *c : workspace()->allClientList()) {
-                if (this == c || c->isDock() || c->isDesktop() || skipTaskbar() || (c->isUtility() && c->keepAbove())) {
+                if (this == c || c->isDock() || c->isDesktop() || c->skipTaskbar() || (c->isUtility() && c->keepAbove())) {
                     continue;
                 }
 
@@ -2787,6 +2805,15 @@ QMatrix4x4 X11Window::inputTransformation() const
     QMatrix4x4 matrix;
     matrix.translate(-m_bufferGeometry.x(), -m_bufferGeometry.y());
     return matrix;
+}
+
+pid_t X11Window::pid() const
+{
+    if (m_pid == 0) {
+        m_pid = getWindowPidByXRes(m_client);
+    }
+
+    return m_pid;
 }
 
 Xcb::Property X11Window::fetchShowOnScreenEdge() const
@@ -4410,8 +4437,7 @@ void X11Window::maximize(MaximizeMode mode, bool animated)
     if (max_mode == mode) {
         return;
     }
-    QRectF oldGeometry = frameGeometry();
-    QRectF newGeometry;
+
     blockGeometryUpdates(true);
 
     // maximing one way and unmaximizing the other way shouldn't happen,
@@ -4562,7 +4588,6 @@ void X11Window::maximize(MaximizeMode mode, bool animated)
         }
         info->setState(NET::States(), NET::Max);
         updateQuickTileMode(QuickTileFlag::None);
-        newGeometry = restore;
         break;
     }
 
@@ -4619,7 +4644,6 @@ void X11Window::maximize(MaximizeMode mode, bool animated)
         } else {
             updateQuickTileMode(QuickTileFlag::None);
         }
-        newGeometry = r;
         info->setState(NET::Max, NET::Max);
         break;
     }
@@ -4636,10 +4660,6 @@ void X11Window::maximize(MaximizeMode mode, bool animated)
         setMaximized(max_mode & MaximizeHorizontal && max_mode & MaximizeVertical);
         Q_EMIT clientMaximizedStateChanged(this, max_mode, animated);
         Q_EMIT clientMaximizedStateChanged(this, max_mode & MaximizeHorizontal, max_mode & MaximizeVertical);
-        if (animated && (mode == MaximizeFull || mode == MaximizeRestore))
-        {
-            Q_EMIT clientMaximizedChanged(this, oldGeometry, newGeometry, mode);
-        }
         qCDebug(KWIN_CORE) << "set window max mode: " << max_mode << window();
     }
 }
