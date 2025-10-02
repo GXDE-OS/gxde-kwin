@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+#
+# SPDX-License-Identifier: CC0-1.0
+
+filters:
+  # KWin core
+  - filter_type: file
+    source_file: po/en_GB/kwin.po
+    file_format: PO
+    source_language: en_GB
+    translation_files_expression: po/<lang>/kwin.po
+
+  # Multitask view effect .ts files
+  - filter_type: file
+    source_file: src/effects/multitaskview/translations/multitasking.ts
+    file_format: QT
+    source_language: en
+    translation_files_expression: src/effects/multitaskview/translations/multitasking_<lang>.ts
+
+  # Split screen menu .ts files
+  - filter_type: file
+    source_file: src/splitscreen/translations/splitmenu.ts
+    file_format: QT
+    source_language: en
+    translation_files_expression: src/splitscreen/translations/splitmenu_<lang>.ts
+
+settings:
+  pr_branch_name: transifex_update_<br_unique_id>

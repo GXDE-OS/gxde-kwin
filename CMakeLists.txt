@@ -180,6 +180,7 @@ set_package_properties(KF${KF_MAJOR_VERSION}Kirigami2 PROPERTIES
 
 if (BUILD_ON_V25)
     add_definitions(-DBUILD_ON_V25)
+    add_definitions(-DBUILD_WITHOUT_V20_PATCH)
     add_subdirectory(kdecoration)
 else()
   find_package(KDecoration2 ${PROJECT_VERSION} CONFIG)
@@ -295,6 +296,7 @@ else()
 endif()
 
 pkg_check_modules(XKBX11 IMPORTED_TARGET xkbcommon-x11 REQUIRED)
+pkg_check_modules(XRES REQUIRED IMPORTED_TARGET xcb-res)
 add_feature_info(XKBX11 XKBX11_FOUND "Required for handling keyboard events in X11 backend")
 
 find_package(Libinput 1.12)

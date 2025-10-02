@@ -1,23 +1,25 @@
-# Translation of kcm_virtualkeyboard.po to Catalan
-# Copyright (C) 2021 This_file_is_part_of_KDE
-# This file is distributed under the license LGPL version 2.1 or
-# version 3 or later versions approved by the membership of KDE e.V.
-#
-# Josep M. Ferrer <txemaq@gmail.com>, 2021.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kwin package.
+# 
+# Steve Allewell <steve.allewell@gmail.com>, 2021.
+# Translators:
+# Gary Wang <wzc782970009@gmail.com>, 2025
+# Davidmp <medipas@gmail.com>, 2025
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: kwin\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-01 00:48+0000\n"
-"PO-Revision-Date: 2021-04-27 13:10+0200\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
-"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
-"Language: ca\n"
+"PO-Revision-Date: 2025-06-24 07:00+0000\n"
+"Last-Translator: Davidmp <medipas@gmail.com>, 2025\n"
+"Language-Team: Catalan (https://app.transifex.com/linuxdeepin/teams/3617/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -37,19 +39,19 @@ msgstr "Teclat virtual"
 #: kcmvirtualkeyboard.cpp:31
 #, kde-format
 msgid "Choose Virtual Keyboard"
-msgstr "Selecció de teclat virtual"
+msgstr "Trieu un teclat virtual"
 
 #: kcmvirtualkeyboard.cpp:68
 #, kde-format
 msgid "None"
-msgstr "Sense"
+msgstr "Cap"
 
 #: kcmvirtualkeyboard.cpp:72
 #, kde-format
 msgid "Do not use any virtual keyboard"
-msgstr "No usar cap teclat virtual"
+msgstr "Sense teclat virtual"
 
 #: package/contents/ui/main.qml:16
 #, kde-format
 msgid "This module lets you choose the virtual keyboard to use."
-msgstr "Aquest mòdul permet triar el teclat virtual a usar."
+msgstr "Aquest mòdul us permet triar el teclat virtual que voleu usar."
