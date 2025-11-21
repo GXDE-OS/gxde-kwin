@@ -65,14 +65,6 @@ Q_GLOBAL_STATIC_WITH_ARGS(QGSettings, _gsettings_dde_dock, ("com.deepin.dde.dock
 #define ADDBTN_SIZE_SCALE   (float)(64.0 / 1920.0)
 #define ADDBTN_RADIUS_SCALE (float)(18.0 / 1920.0)
 
-#define DBUS_APPEARANCE_SERVICE "org.deepin.dde.Appearance1"
-#define DBUS_APPEARANCE_OBJ "/org/deepin/dde/Appearance1"
-#define DBUS_APPEARANCE_INTF "org.deepin.dde.Appearance1"
-
-#define DBUS_IMAGEEFFECT_SERVICE "org.deepin.dde.ImageBlur1"
-#define DBUS_BLUR_OBJ "/org/deepin/dde/ImageBlur1"
-#define DBUS_BLUR_INTF "org.deepin.dde.ImageBlur1"
-
 #define MULTITASK_CLOSE_SVG      ":/effects/multitaskview/buttons/multiview_delete.svg"
 #define MULTITASK_TOP_SVG        ":/effects/multitaskview/buttons/multiview_top.svg"
 #define MULTITASK_TOP_ACTIVE_SVG ":/effects/multitaskview/buttons/multiview_top_active.svg"
@@ -539,8 +531,6 @@ void MultiViewWinFill::render()
 
 MultitaskViewEffect::MultitaskViewEffect()
     : m_showActions(new QAction(this))
-    , m_showActionw(new QAction(this))
-    , m_showActiona(new QAction(this))
     , m_mutex(QMutex::Recursive)
     , m_timer(new QTimer(this))
     , m_timerCheckWindowClose(new QTimer(this))
@@ -553,23 +543,7 @@ MultitaskViewEffect::MultitaskViewEffect()
     KGlobalAccel::self()->setShortcut(s, QList<QKeySequence>() << Qt::META + Qt::Key_S);
     shortcut = KGlobalAccel::self()->shortcut(s);
 
-    QAction *w = m_showActionw;
-    w->setObjectName(QStringLiteral("ShowMultitaskingW"));
-    w->setText("Show Multitasking View");
-    KGlobalAccel::self()->setDefaultShortcut(w, QList<QKeySequence>() << Qt::META + Qt::Key_W);
-    KGlobalAccel::self()->setShortcut(w, QList<QKeySequence>() << Qt::META + Qt::Key_W);
-    shortcutw = KGlobalAccel::self()->shortcut(w);
-
-    QAction *a = m_showActiona;
-    a->setObjectName(QStringLiteral("ShowMultitaskingA"));
-    a->setText("Show Multitasking View");
-    KGlobalAccel::self()->setDefaultShortcut(a, QList<QKeySequence>() << Qt::META + Qt::Key_A);
-    KGlobalAccel::self()->setShortcut(a, QList<QKeySequence>() << Qt::META + Qt::Key_A);
-    shortcuta = KGlobalAccel::self()->shortcut(a);
-
     connect(s, SIGNAL(triggered(bool)), this, SLOT(toggle()));
-    connect(w, SIGNAL(triggered(bool)), this, SLOT(toggle()));
-    connect(a, SIGNAL(triggered(bool)), this, SLOT(toggle()));
 
     connect(effects, &EffectsHandler::windowAdded, this, &MultitaskViewEffect::onWindowAdded);
     connect(effects, &EffectsHandler::windowDeleted, this, &MultitaskViewEffect::onWindowDeleted);
@@ -619,6 +593,10 @@ MultitaskViewEffect::MultitaskViewEffect()
 
     cacheWorkspaceBackground();
 
+    QDBusConnection::systemBus().connect(CONFIGMANAGER_SERVICE, DConfigDecorationReplyPath(), CONFIGMANAGER_MANAGER_INTERFACE,
+                                         "valueChanged", this, SLOT(updateShowWholeStatus(QString)));
+    updateShowWholeStatusPrivate();
+
     QDBusConnection::sessionBus().connect(DBUS_DEEPIN_WM_SERVICE, DBUS_DEEPIN_WM_OBJ, DBUS_DEEPIN_WM_INTF,
                                         "ShowWorkspaceChanged", this, SLOT(toggle()));
     QDBusConnection::sessionBus().connect("com.deepin.ScreenRecorder.time", "/com/deepin/ScreenRecorder/time", "com.deepin.ScreenRecorder.time", "start", this, SLOT(screenRecorderStart()));
@@ -633,14 +611,6 @@ MultitaskViewEffect::~MultitaskViewEffect()
     if (m_showActions) {
         delete m_showActions;
         m_showActions = nullptr;
-    }
-    if (m_showActionw) {
-        delete m_showActionw;
-        m_showActionw = nullptr;
-    }
-    if (m_showActiona) {
-        delete m_showActiona;
-        m_showActiona = nullptr;
     }
 }
 
@@ -1446,9 +1416,9 @@ void MultitaskViewEffect::renderDragWorkspacePrompt(EffectScreen *screen)
         int width = m_dragTipsFrameShadow->iconSize().width() + metrics.horizontalAdvance(tr("Drag upwards to remove")) + 13;
 
         m_dragTipsFrameShadow->setFont(font);
-        m_dragTipsFrameShadow->setGeometry(QRect(rect.x() + (rect.width() - width) / 2, rect.y() + (rect.height() / 2), width, 28));
+        m_dragTipsFrameShadow->setGeometry(QRect(rect.x() + (rect.width() - width) / 2, rect.y() + (rect.height() / 2), width, 28 * effectsEx->getOsScale()));
         m_dragTipsFrame->setFont(font);
-        m_dragTipsFrame->setGeometry(QRect(rect.x() + (rect.width() - width) / 2, rect.y() + (rect.height() / 2), width, 28));
+        m_dragTipsFrame->setGeometry(QRect(rect.x() + (rect.width() - width) / 2, rect.y() + (rect.height() / 2), width, 28 * effectsEx->getOsScale()));
 
         m_dragTipsFrameShadow->render(infiniteRegion(), 1, 0);
         m_dragTipsFrame->render(infiniteRegion(), 1, 0);
@@ -1931,9 +1901,7 @@ void MultitaskViewEffect::grabbedKeyboardEvent(QKeyEvent* e)
     }
 
     if (e->type() == QEvent::KeyPress) {
-        if (shortcut.contains(e->key() + e->modifiers()) ||
-            shortcuta.contains(e->key() + e->modifiers()) ||
-            shortcutw.contains(e->key() + e->modifiers())) {
+        if (shortcut.contains(e->key() + e->modifiers())) {
             toggle();
             return;
         }
@@ -3072,6 +3040,8 @@ void MultitaskViewEffect::addNewDesktop()
     int count = effects->numberOfDesktops();
     if (count >= MAX_DESKTOP_COUNT)
         return;
+    if (count == MAX_DESKTOP_COUNT - 1)
+        m_isShowPreview = false;
 
     m_isShieldEvent = true;
     effects->setNumberOfDesktops(count + 1);
@@ -4034,6 +4004,47 @@ bool MultitaskViewEffect::touchUp(qint32 id, std::chrono::microseconds time)
 void MultitaskViewEffect::motionRepeat()
 {
     m_longPressTouch = true;
+}
+
+QString MultitaskViewEffect::DConfigDecorationReplyPath()
+{
+    QDBusInterface interfaceRequire(CONFIGMANAGER_SERVICE, "/", CONFIGMANAGER_INTERFACE, QDBusConnection::systemBus());
+    interfaceRequire.setTimeout(100);
+    QDBusReply<QDBusObjectPath> reply = interfaceRequire.call("acquireManager", "org.kde.kwin", "org.kde.kwin.multitaskview.display", "");
+    if (!reply.isValid()) {
+        qDebug() << "Error in DConfig reply:" << reply.error();
+        return "";
+    }
+
+    return reply.value().path();
+}
+
+void MultitaskViewEffect::updateShowWholeStatusPrivate()
+{
+    QDBusInterface interfaceRequire("org.desktopspec.ConfigManager", "/", "org.desktopspec.ConfigManager", QDBusConnection::systemBus());
+    interfaceRequire.setTimeout(100);
+    QDBusPendingReply<QDBusObjectPath> reply = interfaceRequire.call("acquireManager", "org.kde.kwin", "org.kde.kwin.multitaskview.display", "");
+    reply.waitForFinished();
+
+    if (!reply.isError()) {
+        QDBusInterface interfaceValue("org.desktopspec.ConfigManager", reply.value().path(), "org.desktopspec.ConfigManager.Manager", QDBusConnection::systemBus());
+        QDBusReply<QVariant> replyValue = interfaceValue.call("value", "windowDisplay");
+        QString strValue = replyValue.value().toString();
+        if (strValue == "Enabled" || strValue == "enabled") {
+            m_isShowWhole = true;
+        } else {
+            m_isShowWhole = false;
+        }
+    } else {
+        qDebug()<<"reply.error: "<<reply.error();
+    }
+}
+
+void MultitaskViewEffect::updateShowWholeStatus(const QString& type)
+{
+    if (type == "windowDisplay") {
+        updateShowWholeStatusPrivate();
+    }
 }
 
 } // namespace KWin

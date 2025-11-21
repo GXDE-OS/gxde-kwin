@@ -36,15 +36,24 @@
 #define DBUS_DEEPIN_WM_SERVICE "com.deepin.wm"
 #define DBUS_DEEPIN_WM_OBJ "/com/deepin/wm"
 #define DBUS_DEEPIN_WM_INTF "com.deepin.wm"
-#define KWinDBusService "org.deepin.dde.Appearance1"
-#define KWinDBusPath "/org/deepin/dde/Appearance1"
-#define KWinDBusInterface "org.deepin.dde.Appearance1"
+
+#define DBUS_APPEARANCE_SERVICE "org.deepin.dde.Appearance1"
+#define DBUS_APPEARANCE_OBJ "/org/deepin/dde/Appearance1"
+#define DBUS_APPEARANCE_INTF "org.deepin.dde.Appearance1"
 #define KWinDBusPropertyInterface "org.freedesktop.DBus.Properties"
+
+#define DBUS_IMAGEEFFECT_SERVICE "org.deepin.dde.ImageEffect1"
+#define DBUS_BLUR_OBJ "/org/deepin/dde/ImageBlur1"
+#define DBUS_BLUR_INTF "org.deepin.dde.ImageBlur1"
 
 #define DBUS_LOGIN_SERVICE       "org.freedesktop.login1"
 #define DBUS_MANAGER_PATH        "/org/freedesktop/login1"
 #define DBUS_MANAGER_INTF        "org.freedesktop.login1.Manager"
 #define DBUS_SESSION_INTF        "org.freedesktop.login1.Session"
+
+#define CONFIGMANAGER_SERVICE   "org.desktopspec.ConfigManager"
+#define CONFIGMANAGER_INTERFACE "org.desktopspec.ConfigManager"
+#define CONFIGMANAGER_MANAGER_INTERFACE "org.desktopspec.ConfigManager.Manager"
 
 class KConfig;
 class KConfigGroup;
@@ -103,6 +112,7 @@ class TileManager;
 class SplitManage;
 class ConfigReader;
 class WindowStyleManager;
+class DebugPixmap;
 
 typedef KWaylandServer::ClientManagementInterface::WindowState WindowState;
 
@@ -574,6 +584,7 @@ public:
     KWaylandServer::DDEShellSurfaceInterface* getDDEShellSurface(KWin::Window* c);
     SplitManage *getSplitManage() const;
     WindowStyleManager *getWindowStyleMgr() const;
+    DebugPixmap *getDebugPixmapPtr() const;
 
     void updateWinTile(Output *output);
 
@@ -615,6 +626,12 @@ public:
     bool getBlurStatus();
     bool isEffectDuring() { return m_isEffectDuring; }
     void setEffectDuringState(bool state) { m_isEffectDuring = state; }
+
+    void saveDebugPixmap(xcb_window_t winid);
+    void setDebugPixmaState(int state) { m_debugPixmapState = state; }
+    int getDebugPixmapState() { return m_debugPixmapState; }
+
+    void resetInteractiveMoveResize();
 
 public Q_SLOTS:
     void performWindowOperation(KWin::Window *window, Options::WindowOperation op);
@@ -696,10 +713,10 @@ public Q_SLOTS:
     void updateWindowStates();
     void slotClientMinimizeChanged(KWin::Window *window);
 
-    void qtActiveColorChanged();
-    void slotIconThemeChanged(const QString &property, const QString &theme);
+    void slotActiveColorChanged(QVariant property);
+    void slotIconThemeChanged(QVariant property);
 
-    void tileActiveWindow(uint);
+    void tileActiveWindow(int);
     void toggleActiveMaximize();
     void slotDockPositionChanged(const QRect &FrontendWindowRect);
     void slotShowingDesktopEffectChanged(bool);
@@ -964,13 +981,17 @@ private:
     std::map<Output *, std::unique_ptr<TileManager>> m_tileManagers;
     std::unique_ptr<SplitManage> m_splitManage;
     std::unique_ptr<WindowStyleManager> m_windowStyleManager;
+    std::unique_ptr<DebugPixmap> m_debugPixmapManager;
 
     QString m_activeColor;
     QString m_sessionPath;
     bool m_splitBarState;
 
-    ConfigReader *m_fontSizeConfigReader = nullptr;
-    ConfigReader *m_fontFamilyConfigReader = nullptr;
+    std::unique_ptr<ConfigReader> m_colorConfigReader;
+    std::unique_ptr<ConfigReader> m_iconConfigReader;
+    std::unique_ptr<ConfigReader> m_fontSizeConfigReader;
+    std::unique_ptr<ConfigReader> m_fontFamilyConfigReader;
+
     Window* m_requestMovingClient = nullptr;
     bool m_bIsTouchToMovingClient = false;
 
@@ -981,6 +1002,7 @@ private:
 
     bool m_printKwinFps = false;
     bool m_isEffectDuring = false;
+    int m_debugPixmapState = 0x0;
 
     bool m_forceDisableRadius = false;
 

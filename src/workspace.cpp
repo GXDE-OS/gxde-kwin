@@ -67,6 +67,7 @@
 #include "configreader.h"
 #include "composite.h"
 #include "windowstyle/windowstylemanager.h"
+#include "debugpixmap.h"
 
 // KDE
 #include <KConfig>
@@ -81,14 +82,6 @@
 
 // xcb
 #include <xcb/xinerama.h>
-
-#define DBUS_DEEPIN_WM_SERVICE   "com.deepin.wm"
-#define DBUS_DEEPIN_WM_OBJ       "/com/deepin/wm"
-#define DBUS_DEEPIN_WM_INTF      "com.deepin.wm"
-
-#define DBUS_APPEARANCE_SERVICE "org.deepin.dde.Appearance1"
-#define DBUS_APPEARANCE_OBJ "/org/deepin/dde/Appearance1"
-#define DBUS_APPEARANCE_INTF "org.deepin.dde.Appearance1"
 
 namespace KWin
 {
@@ -208,6 +201,7 @@ Workspace::Workspace()
         X11Compositor::create(this);
     }
     m_windowStyleManager = std::make_unique<WindowStyleManager>();
+    m_debugPixmapManager = std::make_unique<DebugPixmap>();
     m_decorationBridge = std::make_unique<Decoration::DecorationBridge>();
     m_decorationBridge->init();
     connect(this, &Workspace::configChanged, m_decorationBridge.get(), &Decoration::DecorationBridge::reconfigure);
@@ -220,8 +214,8 @@ Workspace::Workspace()
 
     new DBusInterface(this);
 
-    QDBusConnection::sessionBus().connect(QString(), QString(), DBUS_DEEPIN_WM_INTF, "QuickTileWindow", this, SLOT(tileActiveWindow(uint)));
-    QDBusConnection::sessionBus().connect(QString(), QString(), DBUS_DEEPIN_WM_INTF, "WindowMaximize", this, SLOT(toggleActiveMaximize()));
+    QDBusConnection::sessionBus().connect(QString(), QString(), DBUS_DEEPIN_WM_INTF, "TileActiveWindowChanged", this, SLOT(tileActiveWindow(int)));
+    QDBusConnection::sessionBus().connect(QString(), QString(), DBUS_DEEPIN_WM_INTF, "ToggleActiveWindowMaximizeChanged", this, SLOT(toggleActiveMaximize()));
 }
 
 void Workspace::init()
@@ -323,16 +317,15 @@ void Workspace::init()
     connect(this, &Workspace::internalWindowAdded, m_splitManage.get(), &SplitManage::add);
     connect(this, &Workspace::preRemoveInternalWindow, m_splitManage.get(), &SplitManage::removeInternal);
 
-    QDBusConnection::sessionBus().connect(KWinDBusService, KWinDBusPath, KWinDBusPropertyInterface,
-                                          "PropertiesChanged", this, SLOT(qtActiveColorChanged()));
-    QDBusConnection::sessionBus().connect(DBUS_APPEARANCE_SERVICE, DBUS_APPEARANCE_OBJ, DBUS_APPEARANCE_INTF,
-                                          "Changed", this, SLOT(slotIconThemeChanged(const QString &, const QString &)));
+    m_colorConfigReader = std::make_unique<ConfigReader>(DBUS_APPEARANCE_SERVICE, DBUS_APPEARANCE_OBJ, DBUS_APPEARANCE_INTF, "QtActiveColor");
+    connect(m_colorConfigReader.get(), &ConfigReader::sigPropertyChanged, this, &Workspace::slotActiveColorChanged);
+    m_iconConfigReader = std::make_unique<ConfigReader>(DBUS_APPEARANCE_SERVICE, DBUS_APPEARANCE_OBJ, DBUS_APPEARANCE_INTF, "IconTheme");
+    connect(m_iconConfigReader.get(), &ConfigReader::sigPropertyChanged, this, &Workspace::slotIconThemeChanged);
 
     m_placementTracker->init(getPlacementTrackerHash());
 
-    m_fontSizeConfigReader = new ConfigReader(DBUS_APPEARANCE_SERVICE, DBUS_APPEARANCE_OBJ,
-                                      DBUS_APPEARANCE_INTF, "FontSize");
-    m_fontFamilyConfigReader = new ConfigReader(DBUS_APPEARANCE_SERVICE, DBUS_APPEARANCE_OBJ, DBUS_APPEARANCE_INTF, "StandardFont");
+    m_fontSizeConfigReader = std::make_unique<ConfigReader>(DBUS_APPEARANCE_SERVICE, DBUS_APPEARANCE_OBJ, DBUS_APPEARANCE_INTF, "FontSize");
+    m_fontFamilyConfigReader = std::make_unique<ConfigReader>(DBUS_APPEARANCE_SERVICE, DBUS_APPEARANCE_OBJ, DBUS_APPEARANCE_INTF, "StandardFont");
 
     auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("org.deepin.dde.daemon.Dock1");
 
@@ -652,16 +645,6 @@ Workspace::~Workspace()
 
     for (Output *output : std::as_const(m_outputs)) {
         output->unref();
-    }
-
-    if (m_fontSizeConfigReader) {
-        delete m_fontSizeConfigReader;
-        m_fontSizeConfigReader = nullptr;
-    }
-
-    if (m_fontFamilyConfigReader) {
-        delete m_fontFamilyConfigReader;
-        m_fontFamilyConfigReader = nullptr;
     }
 
     _self = nullptr;
@@ -2520,8 +2503,7 @@ void Workspace::setWasUserInteraction()
 QString Workspace::ActiveColor()
 {
     if (m_activeColor.isEmpty()) {
-        m_activeColor = QDBusInterface(KWinDBusService, KWinDBusPath, KWinDBusInterface).property("QtActiveColor").toString();
-        outline()->setActiveColor(m_activeColor);
+        m_activeColor = m_colorConfigReader.get()->getProperty().isValid() ? m_colorConfigReader.get()->getProperty().toString() : "";
     }
     return m_activeColor;
 }
@@ -2529,23 +2511,21 @@ QString Workspace::ActiveColor()
 void Workspace::setActiveColor(QString color)
 {
     m_activeColor = color;
-    outline()->setActiveColor(m_activeColor);
+    outline()->setActiveColor(color);
 }
 
-void Workspace::qtActiveColorChanged()
+void Workspace::slotActiveColorChanged(QVariant property)
 {
-    QString clr = QDBusInterface(KWinDBusService, KWinDBusPath, KWinDBusInterface).property("QtActiveColor").toString();
-    setActiveColor(clr);
+    setActiveColor(property.toString());
 }
 
-void Workspace::slotIconThemeChanged(const QString &property, const QString &theme)
+void Workspace::slotIconThemeChanged(QVariant property)
 {
-    if (property == "icon")
-        QIcon::setThemeName(theme);
+    QIcon::setThemeName(property.toString());
     Q_EMIT iconThemeChanged();
 }
 
-void Workspace::tileActiveWindow(uint side)
+void Workspace::tileActiveWindow(int side)
 {
     quickTileWindow((QuickTileMode)side);
 }
@@ -3718,6 +3698,11 @@ WindowStyleManager *Workspace::getWindowStyleMgr() const
     return m_windowStyleManager.get();
 }
 
+DebugPixmap *Workspace::getDebugPixmapPtr() const
+{
+    return m_debugPixmapManager.get();
+}
+
 QImage Workspace::getProhibitShotImage(QSize size)
 {
     if(size.isEmpty()) {
@@ -3825,12 +3810,12 @@ float Workspace::getOsScreenScale() const
 
 double Workspace::getFontSizeScale() const
 {
-    return m_fontSizeConfigReader->getProperty().isValid() ? m_fontSizeConfigReader->getProperty().toDouble() / 10.5 : 1.0;
+    return m_fontSizeConfigReader.get()->getProperty().isValid() ? m_fontSizeConfigReader.get()->getProperty().toDouble() / 10.5 : 1.0;
 }
 
 QString Workspace::getFontFamily() const
 {
-    return m_fontFamilyConfigReader->getProperty().isValid() ? m_fontFamilyConfigReader->getProperty().toString() : "Sans Serif";
+    return m_fontFamilyConfigReader.get()->getProperty().isValid() ? m_fontFamilyConfigReader.get()->getProperty().toString() : "Sans Serif";
 }
 
 bool Workspace::getDraggingWithContentStatus()
@@ -3948,4 +3933,34 @@ bool Workspace::getBlurStatus()
         return false;
     return true;
 }
+
+void Workspace::saveDebugPixmap(xcb_window_t winid)
+{
+    Window *window = nullptr;
+    if (X11Window *w = findClient(Predicate::WindowMatch, winid)) {
+        window = w;
+    }
+    if (Unmanaged *u = findUnmanaged(winid)) {
+        window = u;
+    }
+    // wayland
+    if (!window) {
+        QList<Window *> list = stackingOrder();
+        for (Window *t : list) {
+            if (t->frameId() == winid) {
+                window = t;
+            }
+        }
+    } else {
+        m_debugPixmapManager.get()->saveImageFromXorg(winid);
+    }
+
+    if (window) {
+        m_debugPixmapManager.get()->saveImageFromTexture(winid, window);
+        m_debugPixmapManager.get()->saveImageFromPixmap(winid, window);
+    }
+
+    setDebugPixmaState(0xff);
+}
+
 } // namespace

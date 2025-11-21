@@ -45,6 +45,7 @@
 #include "workspace.h"
 #include "x11syncmanager.h"
 #include "x11window.h"
+#include "debugpixmap.h"
 
 #include <kwinglplatform.h>
 #include <kwingltexture.h>
@@ -939,6 +940,11 @@ void Compositor::composite(RenderLoop *renderLoop)
     postPaintPass(superLayer);
     renderLoop->endFrame();
 
+    if (workspace()->getDebugPixmapState() & 0x01) {
+        workspace()->setDebugPixmaState(workspace()->getDebugPixmapState() ^ 0x01);
+        workspace()->getDebugPixmapPtr()->saveCompositePixmap();
+    }
+
     m_backend->present(output);
 
     // TODO: Put it inside the cursor layer once the cursor layer can be backed by a real output layer.
@@ -1197,10 +1203,10 @@ void X11Compositor::start()
             m_effectType = EffectType::XRenderComplete;
         }
         setDConfigUserEffectType(m_effectType);
-        qCDebug(KWIN_CORE) << "Effect type is automatically set to" << m_effectType;
+        qCWarning(KWIN_CORE) << "Effect type is automatically set to" << m_effectType;
     }
 
-    qCDebug(KWIN_CORE) << "Current effect type:" << m_effectType;
+    qCWarning(KWIN_CORE) << "Current effect type:" << m_effectType;
 
     if (m_effectType == EffectType::NoneCompositor) {
         qCDebug(KWIN_CORE) << "Compositing is disabled by DConfig";

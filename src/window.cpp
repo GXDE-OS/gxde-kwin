@@ -33,7 +33,6 @@
 #include "tabbox.h"
 #endif
 #include "scene/shadowitem.h"
-#include "scene/surfaceitem_x11.h"
 #include "scene/windowitem.h"
 #include "screenedge.h"
 #include "shadow.h"
@@ -46,6 +45,7 @@
 #include "wayland_server.h"
 #include "workspace.h"
 #include "x11window.h"
+#include "unmanaged.h"
 #include "windowstyle/windowstylemanager.h"
 #include "windowstyle/decorationstyle.h"
 #include "platformsupport/scenes/opengl/openglsurfacetexture.h"
@@ -385,14 +385,8 @@ bool Window::setupCompositing()
     return true;
 }
 
-void Window::finishCompositing(ReleaseReason releaseReason)
+void Window::finishCompositing()
 {
-    // If the X11 window has been destroyed, avoid calling XDamageDestroy.
-    if (releaseReason != ReleaseReason::Destroyed) {
-        if (SurfaceItemX11 *item = qobject_cast<SurfaceItemX11 *>(surfaceItem())) {
-            item->destroyDamage();
-        }
-    }
     m_shadow.reset();
     m_effectWindow.reset();
     m_windowItem.reset();
@@ -1790,7 +1784,7 @@ void Window::finishInteractiveMoveResize(bool cancel)
     Q_EMIT clientFinishUserMovedResized(this);
     if (needTrigger && isSplitWindow()) {
         Q_EMIT triggerSplitPreview(this);
-    } else if (wasMove && isSplitWindow()) {
+    } else if (wasMove && isSplitWindow() && !m_initPosForSplit.isNull()) {
         Q_EMIT swapSplitWindow(this, 2);
     }
     m_initPosForSplit = QPointF();

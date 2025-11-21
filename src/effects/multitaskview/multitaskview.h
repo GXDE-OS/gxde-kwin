@@ -506,6 +506,9 @@ private:
     bool checkHandlerWorkspace(QPoint pos, EffectScreen *screen, int &desktop);
     void moveWindowChangeDesktop(EffectWindow *w, int todesktop, EffectScreen *toscreen, bool isSwitch = false);
     bool closeWindow(EffectWindow *w);
+    QString DConfigDecorationReplyPath();
+    void updateShowWholeStatusPrivate();
+    void updateShowWholeStatus(const QString& type);
 
 private:
     MultiViewWorkspace *getWorkspaceObject(EffectScreen *screen, int secindex);
@@ -523,11 +526,7 @@ private:
     int m_buttonType{0};
 
     QAction *m_showActions = nullptr;
-    QAction *m_showActionw = nullptr;
-    QAction *m_showActiona = nullptr;
     QList<QKeySequence> shortcut;
-    QList<QKeySequence> shortcutw;
-    QList<QKeySequence> shortcuta;
     QList<EffectWindow *> m_notificationList;
 
     EffectWindow *m_windowMove = nullptr;
