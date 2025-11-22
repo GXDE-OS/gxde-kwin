@@ -93,11 +93,11 @@
       "width": 1,
       "color": "#33ffffff"
     },
-    "rounded-corner-radius": "0,0",
-    "blur": 10,
+    "rounded-corner-radius": "8,8",
+    "blur": 4,
     "opcaity": 1,
     "shadow": {
-      "shadowRadius": 80,
+      "shadowRadius": 8,
       "shadowOffset": "0,30",
       "shadowColor": {
         "active": "#99000000",
@@ -193,11 +193,11 @@
       "width": 1,
       "color": "#33ffffff"
     },
-    "rounded-corner-radius": "0,0",
-    "blur": 10,
+    "rounded-corner-radius": "8,8",
+    "blur": 4,
     "opcaity": 1,
     "shadow": {
-      "shadowRadius": 60,
+      "shadowRadius": 8,
       "shadowOffset": "0,20",
       "shadowColor": "#60000000"
     }
@@ -208,11 +208,11 @@
       "width": 1,
       "color": "#33ffffff"
     },
-    "rounded-corner-radius": "0,0",
-    "blur": 10,
+    "rounded-corner-radius": "8,8",
+    "blur": 4,
     "opcaity": 0,
     "shadow": {
-      "shadowRadius": 14,
+      "shadowRadius": 8,
       "shadowOffset": "0,2",
       "shadowColor": "20000000"
     }
@@ -223,11 +223,11 @@
       "width": 1,
       "color": "#33ffffff"
     },
-    "rounded-corner-radius": "0,0",
-    "blur": 30,
+    "rounded-corner-radius": "8,8",
+    "blur": 4,
     "opcaity": 1,
     "shadow": {
-      "shadowRadius": 12,
+      "shadowRadius": 8,
       "shadowOffset": "0,10",
       "shadowColor": "#66000000"
     }
@@ -238,11 +238,11 @@
       "width": 1,
       "color": "#33ffffff"
     },
-    "rounded-corner-radius": "0,0",
-    "blur": 30,
+    "rounded-corner-radius": "8,8",
+    "blur": 4,
     "opcaity": 1,
     "shadow": {
-      "shadowRadius": 12,
+      "shadowRadius": 8,
       "shadowOffset": "0,6",
       "shadowColor": "#66000000"
     }
@@ -253,11 +253,11 @@
       "width": 1,
       "color": "#33ffffff"
     },
-    "rounded-corner-radius": "0,0",
-    "blur": 30,
+    "rounded-corner-radius": "8,8",
+    "blur": 4,
     "opcaity": 1,
     "shadow": {
-      "shadowRadius": 10,
+      "shadowRadius": 8,
       "shadowOffset": "0,10",
       "shadowColor": "#33000000"
     }
