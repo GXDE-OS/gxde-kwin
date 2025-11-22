@@ -60,3 +60,16 @@ target_link_libraries(
 )
 
 install(TARGETS ${TARGET_NAME} DESTINATION ${KDE_INSTALL_PLUGINDIR}/org.kde.kdecoration2)
+
+install(
+    FILES
+        deepin/light/decoration.json
+    DESTINATION
+        ${KDE_INSTALL_CONFDIR}/deepin-decoration/light/
+)
+install(
+    FILES
+        deepin/dark/decoration.json
+    DESTINATION
+        ${KDE_INSTALL_CONFDIR}/deepin-decoration/dark/
+)
