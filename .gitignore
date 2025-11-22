@@ -26,3 +26,5 @@ CMakeLists.txt.user*
 /cmake-build*
 .cache
 *.qm
+
+obj-x86_64-linux-gnu/
