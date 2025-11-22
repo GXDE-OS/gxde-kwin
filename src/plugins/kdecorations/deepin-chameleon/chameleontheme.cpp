@@ -319,10 +319,10 @@ static void parserWindowDecoration(const UIWindowType& windowType, const QJsonVa
     }
 
     //rounded-corner-radius TODO
-    paserSpecialAttribute<QPointF>(windowDecObj, "rounded-corner-radius", status, config->radius, base ? base->radius : QPointF(18.0, 18.0));
+    paserSpecialAttribute<QPointF>(windowDecObj, "rounded-corner-radius", status, config->radius, base ? base->radius : QPointF(8.0, 8.0));
 
     //blur
-    paserSpecialAttribute<qreal>(windowDecObj, "blur", status, config->blur, base ? base->blur : 20.0);
+    paserSpecialAttribute<qreal>(windowDecObj, "blur", status, config->blur, base ? base->blur : 4.0);
 
     //opcaity
     paserSpecialAttribute<qreal>(windowDecObj, "opcaity", status, config->opacity, base ? base->opacity : 20.0);

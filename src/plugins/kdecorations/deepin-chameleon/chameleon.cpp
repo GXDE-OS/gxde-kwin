@@ -615,7 +615,7 @@ void Chameleon::updateShadow()
             radius = window_radius.toPointF();
         }
         if (radius.isNull()) {
-            radius = QPointF(0.0, 0.0);
+            radius = QPointF(8.0, 8.0);
         }
         m_config->radius = radius;
     }

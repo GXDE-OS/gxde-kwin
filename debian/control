@@ -98,6 +98,7 @@ Build-Depends: breeze-dev (>= 4:5.14.5-1),
                libxtst-dev,
                libqt5svg5-dev,
                libsystemd-dev,
+               libkf5completion-dev,
 Standards-Version: 4.6.2
 Homepage: https://projects.kde.org/projects/kde/workspace/gxde-kwin
 Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/gxde-kwin
